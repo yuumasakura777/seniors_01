@@ -1,0 +1,13 @@
+
+<% provide(:title,'ユーザー一覧') %>
+
+<h1>ユーザー一覧</h1>
+
+<% @users.each do |user| %>
+  <p>
+    <%= link_to user.name, user %>
+    <% if current_user.admin? && !current_user?(user) %>
+      <%= link_to 'ユーザー削除', user, method: :delete, data: {confirm: "#{user.name}を削除します。よろしいですか?"} %>
+    <% end %>
+  <p>
+<% end %>

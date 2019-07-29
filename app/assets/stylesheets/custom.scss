@@ -1,0 +1,26 @@
+
+.h1{
+  text-align: center;
+}
+
+
+//エラーメッセージ
+.error_message{
+  color: red;
+}
+
+//フラッシュ
+.alert{
+  text-align: center;
+}
+
+.header{
+  text-align: center;
+}
+//ヘッダー(ナビゲーション)
+.header li{
+  list-style: none;
+  display: inline-block;
+  margin:5px 10px 0px 0px;
+  font-size:20px;
+}

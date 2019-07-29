@@ -1,0 +1,53 @@
+
+<% provide(:title, 'ユーザー編集') %>
+<% provide(:submit_button, '更新') %>
+
+
+
+<div class="users-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 users-container">
+        <h1 class="h1">ユーザー編集</h1>
+        <%= form_with model:@user, local:true do |f| %>
+          <%= render 'shared/error_messages', object:@user %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+          <div class=" form-group">
+            <%= f.label :age, class: 'control-label' %>
+            <%= f.select :age, User.ages.keys ,class: 'form-control' %>
+          </div>
+          <div class=" form-group">
+            <%= f.label :gender, class: 'control-label' %>
+            <%= f.select :gender, User.genders.keys, class: 'form-control' %>
+          </div>
+          <div class=" form-group">
+            <%= f.label :residence, class: 'control-label' %>
+            <%= f.select :residence, User.residences.keys, class: 'form-control' %>
+          </div>
+          <div class=" form-group">
+            <%= f.label :description, class: 'control-label' %>
+            <%= f.text_area :description, :size=>"60x12", class: 'form-control' %>
+          </div>
+          <%= f.submit yield(:submit_button), class: 'btn-block btn-white' %>
+        <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
