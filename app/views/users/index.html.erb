@@ -4,11 +4,12 @@
 <div class="container">
   <div class="row">
     <h1>ユーザー一覧</h1>
-    <%= search_form_for @search  do |f| %>
-      <div class="form-group">
-        <%= f.label :residence, "検索" %>
-        <%= f.text_field :residence, class: "form-control" %>
+    <%= search_form_for @q do |f| %>
+      <div class=" form-group">
+        <%= f.label :residence_cont, '居住地', class: 'control-label' %>
+        <%= f.select :residence_cont, User.residences.keys, class: 'form-control' %>
       </div>
+
       <div class="actions"><%= f.submit "Search" %></div>
     <% end %>
 

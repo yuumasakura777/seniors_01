@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @search = User.search(params[:q]) 
-    @users = @search.result
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def new
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success]="ユーザー登録が完了しました。"
-      NotificationMailer.send_confirm_to_user(@user).deliver_later
+      NotificationMailer.send_confirm_to_user(@user).deliver
       redirect_to root_path
     else
       flash.now[:danger]="ユーザー登録に失敗しました。"
