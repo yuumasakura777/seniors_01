@@ -1,0 +1,10 @@
+
+<div class="container">
+  <% @questions.each do |question| %>
+    <div class="question-index">
+      <p>タイトル:<%=question.title %></p>
+      <p>内容:<%= question.content %></p>
+      <p><%= link_to '詳細', question %></p>
+    </div>
+  <% end %>
+</div>

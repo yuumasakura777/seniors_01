@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users=User.all
+    @search = User.search(params[:q]) 
+    @users = @search.result
   end
 
   def new
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success]="ユーザー登録が完了しました。"
+      NotificationMailer.send_confirm_to_user(@user).deliver_later
       redirect_to root_path
     else
       flash.now[:danger]="ユーザー登録に失敗しました。"
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user=User.find(params[:id])
   end
 
   def edit
@@ -50,6 +53,6 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :age,
-      :gender, :residence, :description, :img)
+      :gender, :residence, :description, :image)
     end
 end

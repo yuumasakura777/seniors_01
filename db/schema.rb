@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_28_061827) do
+ActiveRecord::Schema.define(version: 2019_07_29_142027) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "question_answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_question_answers_on_answer_id"
+    t.index ["question_id"], name: "index_question_answers_on_question_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
@@ -20,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_061827) do
     t.integer "gender", limit: 1
     t.integer "residence", limit: 46
     t.text "description"
-    t.string "img"
+    t.string "image"
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :gender , limit: 1
       t.integer :residence, limit: 46
       t.text :description
-      t.string :img
+      t.string :image
       t.boolean :admin, defalut:false
 
       t.timestamps

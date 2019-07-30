@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get "/use",to: 'homes#use'
 
   get "/login", to: "sessions#new"
@@ -8,4 +9,6 @@ Rails.application.routes.draw do
 
   root to: 'homes#home'
   resources :users
+  resources :questions, only:[:index, :new, :create, :show]
+  resources :answers, only:[:new, :edit, :create, :update]
 end

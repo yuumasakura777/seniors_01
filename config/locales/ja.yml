@@ -10,16 +10,21 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       user: ユーザー
+      question: 質問
     attributes:
       user:
         name: 名前(ニックネーム)
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認)
-        age: 年齢(歳)
+        age: 年齢
         gender: 性別
         residence: 居住地
         description: 詳細(自己紹介)
+      question:
+        title: タイトル
+        content: 質問内容
+
   date:
     abbr_day_names:
     - 日

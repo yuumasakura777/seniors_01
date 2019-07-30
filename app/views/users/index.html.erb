@@ -1,13 +1,29 @@
 
 <% provide(:title,'ユーザー一覧') %>
 
-<h1>ユーザー一覧</h1>
-
-<% @users.each do |user| %>
-  <p>
-    <%= link_to user.name, user %>
-    <% if current_user.admin? && !current_user?(user) %>
-      <%= link_to 'ユーザー削除', user, method: :delete, data: {confirm: "#{user.name}を削除します。よろしいですか?"} %>
+<div class="container">
+  <div class="row">
+    <h1>ユーザー一覧</h1>
+    <%= search_form_for @search  do |f| %>
+      <div class="form-group">
+        <%= f.label :residence, "検索" %>
+        <%= f.text_field :residence, class: "form-control" %>
+      </div>
+      <div class="actions"><%= f.submit "Search" %></div>
     <% end %>
-  <p>
-<% end %>
+
+    <% @users.each do |user| %>
+      <div class="col-md-3">
+        <div class="user-index-image">
+          <%= link_to user  do %>
+            <%= image_tag user.image.url %>
+          <% end %>
+        </div>
+        <p class="user-index-name"><%= link_to user.name, user %></p>
+        <% if current_user.admin? && !current_user?(user) %>
+          <%= link_to 'ユーザー削除', user, method: :delete, data: {confirm: "#{user.name}を削除します。よろしいですか?"} %>
+        <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>
