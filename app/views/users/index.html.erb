@@ -6,8 +6,7 @@
     <h1>ユーザー一覧</h1>
     <%= search_form_for @q do |f| %>
       <div class=" form-group">
-        <%= f.label :residence_cont, '居住地', class: 'control-label' %>
-        <%= f.select :residence_cont, User.residences.keys, class: 'form-control' %>
+        <%= f.select :residence_cont, User.residences.keys, {include_blank: '居住地で検索'} %>
       </div>
 
       <div class="actions"><%= f.submit "Search" %></div>

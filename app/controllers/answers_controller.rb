@@ -1,12 +1,15 @@
 class AnswersController < ApplicationController
 
-  def edit
-    @answer=Answer.find(question_id: params[:question_id])
-  end
 
   def create
+    @question=Question.find(params[:question_id])
+    @answer=Answer.new
 
-    @answer=Answer.new(answer_params)
+    if @answer.update(answer_params)
+      redirect_to question_path(@question)
+    else
+      redirect_to question_path(@question)
+    end
 
     if answer.save
       redirect_to question_path
@@ -15,13 +18,12 @@ class AnswersController < ApplicationController
     end
   end
 
-
-
-
+  def edit
+  end
 
   private
 
     def answer_params
-      params.require(:answer).permit(:content)
+      params.require(:answer).permit(:content, :question_id)
     end
 end

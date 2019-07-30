@@ -6,7 +6,7 @@ class NotificationMailer < ActionMailer::Base
     mail(
       subject: "ユーザー登録が完了しました。",
       to: @user.email
-    ) do |fomat|
+    ) do |format|
       format.text
     end
   end

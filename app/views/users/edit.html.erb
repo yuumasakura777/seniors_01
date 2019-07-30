@@ -20,16 +20,13 @@
           <%= f.text_field :name, class: 'form-control' %>
         </div>
         <div class=" form-group">
-          <%= f.label :age, class: 'control-label' %>
-          <%= f.select :age, User.ages.keys ,class: 'form-control' %>
+          <%= f.select :age, User.ages.keys, include_blank: '年齢を選択' %>
         </div>
         <div class=" form-group">
-          <%= f.label :gender, class: 'control-label' %>
-          <%= f.select :gender, User.genders.keys, class: 'form-control' %>
+          <%= f.select :gender, User.genders.keys, include_blank: '性別を選択' %>
         </div>
         <div class=" form-group">
-          <%= f.label :residence, class: 'control-label' %>
-          <%= f.select :residence, User.residences.keys, class: 'form-control' %>
+          <%= f.select :residence, User.residences.keys, include_blank: '居住地を選択' %>
         </div>
         <div class=" form-group">
           <%= f.label :description, class: 'control-label' %>

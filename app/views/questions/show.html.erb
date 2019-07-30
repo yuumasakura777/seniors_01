@@ -1,3 +1,22 @@
 
+<div class="container"
+  <div class="row">
+    <div class="col-md-12">
+      <h2><%= @question.title %></h2>
+      <div>
+        内容: <%= @question.content %>
+      </div>
+      <hr>
+      <h3>質問返信</h3>
+      <%= form_with model: [@question, @answer], local: true do |f| %>
+        <%= hidden_field :question_id, {value: @question.id} %>
+        <div class="form-group">
+          <%= f.label :content %>
+          <%= f.text_area :conetnt, class: 'form-control' %>
+        </div>
+        <%= f.submit "投稿" %>
+      <% end %>
 
-<%= link_to '返信する', edit_answer_path(@question.id) %>
+    </div>
+  </div>
+</div>
