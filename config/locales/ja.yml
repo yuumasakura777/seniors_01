@@ -19,7 +19,6 @@ ja:
         password_confirmation: パスワード(確認)
         age: 年齢
         gender: 性別
-        residence_id: 居住地
         description: 詳細(自己紹介)
       question:
         title: タイトル

@@ -1,7 +1,4 @@
 
-
-
-
 Residence.seed(:id,
   { :id => 0, :name => "北海道" },
   { :id => 1, :name => "青森県" },
