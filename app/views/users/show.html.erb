@@ -18,10 +18,16 @@
           <td><%= @user.gender %></td>
         </tr>
         <tr>
+          <th><%= User.human_attribute_name(:residence_id) %></th>
+          <td><%= @user.residence.name if @user.residence_id? %></td>
+        </tr>
+        <tr>
           <th><%= User.human_attribute_name(:description) %></th>
           <td><%= @user.description %></td>
         </tr>
       </tbody>
     </table>
+
+
 
 </div>

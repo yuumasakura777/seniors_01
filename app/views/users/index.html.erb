@@ -5,6 +5,9 @@
   <div class="row">
     <h1>ユーザー一覧</h1>
     <%= search_form_for @q do |f| %>
+      <div class=" form-group">
+        <%= f.collection_select :residence_id, Residence.all, :id, :name, include_blank: '居住地を選択' %>
+      </div>
       <div class="actions"><%= f.submit "Search" %></div>
     <% end %>
 
