@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_013828) do
+ActiveRecord::Schema.define(version: 2019_07_31_022938) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content", null: false
@@ -39,14 +39,13 @@ ActiveRecord::Schema.define(version: 2019_07_31_013828) do
     t.string "password_digest", null: false
     t.integer "age", limit: 30
     t.integer "gender", limit: 1
-    t.integer "residence", limit: 46
     t.text "description"
     t.string "image"
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "residence_id"
-    t.index ["age", "gender", "residence"], name: "index_users_on_age_and_gender_and_residence"
+    t.index ["age", "gender"], name: "index_users_on_age_and_gender_and_residence"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -178,6 +178,9 @@ GEM
     sassc (2.0.1)
       ffi (~> 1.9)
       rake
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -234,6 +237,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   ransack
   sass-rails (~> 5.0)
+  seed-fu
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
