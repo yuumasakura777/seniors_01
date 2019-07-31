@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 
   has_many :questions, dependent: :destroy
-  has_many :residences, dependent: :destroy
+
+  belongs_to :residence
 
   validates :name, presence:true, length: {maximum: 10}
 

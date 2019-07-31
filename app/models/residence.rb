@@ -1,3 +1,3 @@
 class Residence < ApplicationRecord
-  belongs_to :user
+  has_many :users
 end
