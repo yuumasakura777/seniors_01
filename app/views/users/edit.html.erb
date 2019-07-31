@@ -26,7 +26,7 @@
           <%= f.select :gender, User.genders.keys, include_blank: '性別を選択' %>
         </div>
         <div class=" form-group">
-          <%= f.select :residence, User.residences.keys, include_blank: '居住地を選択' %>
+          <%= f.collection_select :name, Residence.group(:name) %>
         </div>
         <div class=" form-group">
           <%= f.label :description, class: 'control-label' %>

@@ -10,12 +10,6 @@ class AnswersController < ApplicationController
     else
       redirect_to question_path(@question)
     end
-
-    if answer.save
-      redirect_to question_path
-    else
-      render :new
-    end
   end
 
   def edit

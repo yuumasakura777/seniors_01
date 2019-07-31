@@ -10,21 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_142027) do
+ActiveRecord::Schema.define(version: 2019_07_31_013828) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "question_answers", force: :cascade do |t|
-    t.integer "question_id"
-    t.integer "answer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["answer_id"], name: "index_question_answers_on_answer_id"
-    t.index ["question_id"], name: "index_question_answers_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -33,6 +24,13 @@ ActiveRecord::Schema.define(version: 2019_07_29_142027) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "answer_id"
+  end
+
+  create_table "residences", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_142027) do
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "residence_id"
     t.index ["age", "gender", "residence"], name: "index_users_on_age_and_gender_and_residence"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

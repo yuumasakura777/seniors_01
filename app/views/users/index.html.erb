@@ -5,10 +5,6 @@
   <div class="row">
     <h1>ユーザー一覧</h1>
     <%= search_form_for @q do |f| %>
-      <div class=" form-group">
-        <%= f.select :residence_cont, User.residences.keys, {include_blank: '居住地で検索'} %>
-      </div>
-
       <div class="actions"><%= f.submit "Search" %></div>
     <% end %>
 
