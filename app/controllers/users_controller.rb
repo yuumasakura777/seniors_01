@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
+    @select_residence=User.select_residence
   end
 
   def new

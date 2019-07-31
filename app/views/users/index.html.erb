@@ -6,10 +6,14 @@
     <h1>ユーザー一覧</h1>
     <%= search_form_for @q do |f| %>
       <div class=" form-group">
-        <%= f.collection_select :residence_id, Residence.all, :id, :name, include_blank: '居住地を選択' %>
+        <%= f.label :name_cont , '名前で検索' %>
+        <%= f.text_field :name_cont, class: 'form-control'%>
       </div>
-      <div class="actions"><%= f.submit "Search" %></div>
+      <div><%= f.submit "Search" %></div>
     <% end %>
+    <div class=" form-group">
+      <%= f.collection_select :residence_id, Residence.all, :id, :name, include_blank: '居住地を選択' %>
+    </div
 
     <% @users.each do |user| %>
       <div class="col-md-3">

@@ -21,6 +21,10 @@ class User < ApplicationRecord
   #enumでgemderカラムの表示処理
   enum gender: %i(男性 女性)
 
+  #引数の都道府県に住んでいる
+  scope :select_residence, -> residence_id{
+    joins(:residences).merge(Residence.id_is residence_id)
+  }
 
 
   #uploader
