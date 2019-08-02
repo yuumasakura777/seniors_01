@@ -15,9 +15,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    #ログイン済みユーザーが正しいユーザーどうか判定
+  #ログイン済みユーザーが正しいユーザーどうか判定
     def correct_user
       @user=User.find(params[:id])
       redirect_to root_path unless @user==current_user
     end
+
 end

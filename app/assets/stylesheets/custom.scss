@@ -41,6 +41,13 @@
   border-radius: 50%
 }
 
+//users#new
+.user-submit{
+  :hover{
+    background-color: #CCFFCC;
+  }
+}
+
 //users#show
 .user-show-image img{
   width:200px;
@@ -52,6 +59,13 @@
 //users#edit
 .col-md-offset-4.col-md-4.users-edir{
   height: 2000px;
+}
+
+//sessions#new
+.session-submit{
+  :hover{
+    background-color: #CCFFFF;
+  }
 }
 
 //footer

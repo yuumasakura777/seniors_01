@@ -21,6 +21,7 @@ ja:
         gender: 性別
         residence: 居住地
         description: 詳細(自己紹介)
+        image: 画像 (jpg jpeg png)
       question:
         title: タイトル
         content: 質問内容

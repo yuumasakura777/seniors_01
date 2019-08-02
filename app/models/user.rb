@@ -12,6 +12,15 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX=/[a-z0-9]+/
   validates :password, length: {minimum: 8, maximum: 20}, format: {with: VALID_PASSWORD_REGEX}, on: :create
 
+  #年齢が数字で60歳〜90歳でなければ弾く
+  validates :age,
+   numericality:{
+     only_integer: true,
+     greater_than: 59,
+     less_than: 91,
+     allow_blank: true
+   }
+
   #enumでgemderカラムの表示処理
   enum gender: %i(男性 女性)
 
