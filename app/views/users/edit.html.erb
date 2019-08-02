@@ -2,39 +2,34 @@
 <% provide(:title, 'ユーザー編集') %>
 <% provide(:submit_button, '更新') %>
 
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-offset-4 col-md-4 users-container">
-      <h1 class="h1">ユーザー編集</h1>
-      <%= form_with model:@user, local:true do |f| %>
-        <%= render 'shared/error_messages', object:@user %>
-        <div class="form-group">
-          <%= f.label :image %>
-          <%= f.file_field :image, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :name %>
-          <%= f.text_field :name, class: 'form-control' %>
-        </div>
-        <div class=" form-group">
-          <%= f.select :age, User.ages.keys, include_blank: '年齢を選択' %>
-        </div>
-        <div class=" form-group">
-          <%= f.select :gender, User.genders.keys, include_blank: '性別を選択' %>
-        </div>
-        <div class=" form-group">
-          <%= f.collection_select :residence_id, Residence.all, :id, :name, include_blank: '居住地を選択' %>
-        </div>
-        <div class=" form-group">
-          <%= f.label :description, class: 'control-label' %>
-          <%= f.text_area :description, :size=>"60x12", class: 'form-control' %>
-        </div>
-        <%= f.submit yield(:submit_button), class: 'btn-block btn-white' %>
-      <% end %>
+<div class="row">
+  <div class="col-md-offset-4 col-md-4 users-container">
+    <h1 class="h1">ユーザー編集</h1>
+    <%= form_with model:@user, local:true do |f| %>
+      <%= render 'shared/error_messages', object:@user %>
+      <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :image, class: 'form-control' %>
       </div>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class=" form-group">
+        <%= f.select :age, User.ages.keys, include_blank: '年齢を選択' %>
+      </div>
+      <div class=" form-group">
+        <%= f.select :gender, User.genders.keys, include_blank: '性別を選択' %>
+      </div>
+      <div class=" form-group">
+        <%= f.select :residence, User.residences.keys, include_blank: '居住地を選択' %>
+      </div>
+      <div class=" form-group">
+        <%= f.label :description, class: 'control-label' %>
+        <%= f.text_area :description, :size=>"60x12", class: 'form-control' %>
+      </div>
+      <%= f.submit yield(:submit_button), class: 'btn-block btn-white' %>
+    <% end %>
     </div>
   </div>
 </div>

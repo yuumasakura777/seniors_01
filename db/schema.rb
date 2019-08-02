@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_022938) do
+ActiveRecord::Schema.define(version: 2019_08_01_135043) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content", null: false
@@ -27,12 +27,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_022938) do
     t.integer "answer_id"
   end
 
-  create_table "residences", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -44,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_07_31_022938) do
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "residence_id"
+    t.integer "residence", limit: 46
     t.index ["age", "gender"], name: "index_users_on_age_and_gender_and_residence"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

@@ -1,38 +1,36 @@
 
-<div class="container"
-  <div class="row">
-    <div class="col-md-12">
-      <h2><%= @question.title %></h2>
-      <div>
-        内容: <%= @question.content %>
-      </div>
-      <hr>
-      <table class="table table-striped">
-        <% if @question.answers.any? %>
-          <thead class="thead-light">
-            <tr>
-              <td>返信内容</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= @question.answers.content %></td>
-            </tr>
-          </tbody>
-        <% else %>
-          まだ回答がありません。
-        <% end %>
-      </table>
-      <h3>質問返信</h3>
-      <%= form_with model: [@question, @answer], local: true do |f| %>
-        <%= hidden_field :question_id, {value: @question.id} %>
-        <div class="form-group">
-          <%= f.label :content %>
-          <%= f.text_area :conetnt, class: 'form-control' %>
-        </div>
-        <%= f.submit "投稿" %>
-      <% end %>
 
+<div class="row">
+  <div class="col-md-12">
+    <h2><%= @question.title %></h2>
+    <div>
+      内容: <%= @question.content %>
     </div>
+    <hr>
+    <table class="table table-striped">
+      <% if @question.answers.any? %>
+        <thead class="thead-light">
+          <tr>
+            <td>返信内容</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @question.answers.content %></td>
+          </tr>
+        </tbody>
+      <% else %>
+        まだ回答がありません。
+      <% end %>
+    </table>
+    <h3>質問返信</h3>
+    <%= form_with model: [@question, @answer], local: true do |f| %>
+      <%= hidden_field :question_id, {value: @question.id} %>
+      <div class="form-group">
+        <%= f.label :content %>
+        <%= f.text_area :conetnt, class: 'form-control' %>
+      </div>
+      <%= f.submit "投稿" %>
+    <% end %>
   </div>
 </div>

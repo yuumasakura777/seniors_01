@@ -23,6 +23,10 @@
   display: inline-block;
   margin:5px 10px 0px 0px;
   font-size:20px;
+  :hover{
+    color:green;
+    background-color: #FFFFCC;
+  }
 }
 
 //users#index
@@ -34,12 +38,23 @@
 .user-index-image img{
   width:150px;
   height:150px;
-  border-radius: 10% 10% 10% 10%
+  border-radius: 50%
 }
 
 //users#show
 .user-show-image img{
-  width:220px;
-  height:150px;
+  width:200px;
+  height:200px;
   margin-bottom:10px;
+  border-radius: 50%
+}
+
+//footer
+.footer{
+  position: fixed;
+  bottom :0;
+  width: 100%;
+  p{
+    text-align: center;
+  }
 }

@@ -63,6 +63,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 gem 'carrierwave'
-gem 'ransack'
-gem 'enum_help'
-gem 'seed-fu'
+gem 'jquery-rails'
