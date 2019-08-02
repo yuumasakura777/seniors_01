@@ -7,7 +7,7 @@
     <h2>ユーザを検索する</h2>
     <%= form_tag(users_path, method: "get") do %>
       <div class="form-group">
-        <%= label :name ,'名前で検索' %>
+        <%= label :name , '名前で検索' %>
         <%= text_field_tag :name, params[:name], class: 'form-control' %>
       </div>
       <div class="form-group">

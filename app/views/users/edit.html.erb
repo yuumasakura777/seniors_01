@@ -3,7 +3,7 @@
 <% provide(:submit_button, '更新') %>
 
 <div class="row">
-  <div class="col-md-offset-4 col-md-4 users-container">
+  <div class="col-md-offset-4 col-md-4 users-edir">
     <h1 class="h1">ユーザー編集</h1>
     <%= form_with model:@user, local:true do |f| %>
       <%= render 'shared/error_messages', object:@user %>
@@ -16,7 +16,8 @@
         <%= f.text_field :name, class: 'form-control' %>
       </div>
       <div class=" form-group">
-        <%= f.select :age, User.ages.keys, include_blank: '年齢を選択' %>
+        <%= f.label :age %>
+        <%= f.text_field :age, placeholder: '(歳)', class: 'form-control' %>
       </div>
       <div class=" form-group">
         <%= f.select :gender, User.genders.keys, include_blank: '性別を選択' %>
@@ -26,7 +27,7 @@
       </div>
       <div class=" form-group">
         <%= f.label :description, class: 'control-label' %>
-        <%= f.text_area :description, :size=>"60x12", class: 'form-control' %>
+        <%= f.text_area :description, :size=>"60x10", class: 'form-control' %>
       </div>
       <%= f.submit yield(:submit_button), class: 'btn-block btn-white' %>
     <% end %>

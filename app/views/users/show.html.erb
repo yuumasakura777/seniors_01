@@ -11,7 +11,11 @@
       </tr>
       <tr>
         <th><%= User.human_attribute_name(:age) %></th>
-        <td><%= @user.age %></td>
+        <td><%= @user.age %>
+          <% if @user.age.present? %>
+            (歳)
+          <% end %>
+        </td>
       </tr>
       <tr>
         <th><%= User.human_attribute_name(:gender) %></th>

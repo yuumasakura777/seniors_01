@@ -29,6 +29,12 @@ class User < ApplicationRecord
   scope :search_by_name, ->(name){
     where("name like ?", "%#{name}%")
   }
+
+  #年齢による検索
+  scope :search_by_age, ->(age){
+    where(age: age)
+  }
+
   #性別による検索
   scope :search_by_gender, ->(gender){
     where(gender: gender)
@@ -38,8 +44,5 @@ class User < ApplicationRecord
   scope :search_by_residence, ->(residence){
     where(residence: residence)
   }
-
-
-
 
 end

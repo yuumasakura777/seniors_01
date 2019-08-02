@@ -12,6 +12,11 @@ class UsersController < ApplicationController
       @users=@users.search_by_name params[:name]
     end
 
+    #年齢で検索
+    if params[:age].present?
+      @users=@users.search_by_age params[:age]
+    end
+
     #性別で検索
     if params[:gender].present?
       @users=@users.search_by_gender params[:gender]
