@@ -8,11 +8,11 @@
     <%= form_tag(users_path, method: "get") do %>
       <div class="form-group">
         <%= label :name , '名前で検索' %>
-        <%= text_field_tag :name, params[:name], class: 'form-control' %>
+        <%= text_field_tag :name, params[:name], placeholder: '名前(ニックネーム)を入力してください。', class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= label :age, '年齢で検索' %>
-        <%= text_field_tag :age, params[:age], class: 'form-control' %>
+        <%= text_field_tag :age, params[:age], placeholder: '60〜90までの数字を入力してください。', class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= select_tag :gender, options_for_select(User.genders), include_blank: "性別で検索" %>
@@ -20,23 +20,26 @@
       <div class="form-group">
         <%= select_tag :residence, options_for_select(User.residences), include_blank: "居住地で検索" %>
       </div>
-      <%= submit_tag "検索" %>
+      <div class="user-index-search"><%= submit_tag "検索" %></div>
     <% end %>
   </div>
 </div>
 <div class="row">
-  <h1>ユーザー一覧</h1>
-  <% @users.each do |user| %>
-    <div class="col-md-3">
-      <div class="user-index-image">
-        <%= link_to user  do %>
-          <%= image_tag user.image.url %>
+  <div class="user-index-list">
+    <h2>ユーザー一覧</h2>
+    <% @users.each do |user| %>
+      <div class="col-md-3">
+        <div class="user-index-image">
+          <%= link_to user  do %>
+            <%= image_tag user.image.url %>
+          <% end %>
+        </div>
+        <p class="user-index-name"><%= link_to user.name, user %></p>
+        <% if current_user.admin? && !current_user?(user) %>
+          <%= link_to 'ユーザー削除', user, method: :delete, data: {confirm: "#{user.name}を削除します。よろしいですか?"} %>
         <% end %>
       </div>
-      <p class="user-index-name"><%= link_to user.name, user %></p>
-      <% if current_user.admin? && !current_user?(user) %>
-        <%= link_to 'ユーザー削除', user, method: :delete, data: {confirm: "#{user.name}を削除します。よろしいですか?"} %>
-      <% end %>
-    </div>
-  <% end %>
+    <% end %>
+    <div class="user-index-paginate"><%= paginate @users %></div>
+  </div>
 </div>

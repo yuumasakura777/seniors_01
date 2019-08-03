@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def index
 
-    @users=User.all
+    #直近の登録順に表示
+    @users=User.recent.page(params[:page]).per(20)
 
     #名前で検索
     if params[:name].present?

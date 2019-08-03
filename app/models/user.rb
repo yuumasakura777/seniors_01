@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
   has_many :questions, dependent: :destroy
 
-  validates :name, presence:true, length: {maximum: 10}
+  validates :name, presence:true, length: {maximum: 8}
 
   #新規登録時のみバリデーション実行
   VALID_EMAIL_REGEX=/[a-z0-9]+@[a-z0-9]+\.[a-z0-9]+/
@@ -33,6 +33,9 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_secure_password
+
+  #最新の登録を一番上に表示
+  scope :recent, ->{order(created_at: :desc)}
 
   #名前による検索
   scope :search_by_name, ->(name){

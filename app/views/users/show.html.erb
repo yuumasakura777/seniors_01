@@ -1,34 +1,40 @@
 
 
+<div class="user-show">
+  <h1>ユーザー詳細</h1>
+  <div class="user-show-image"><%= image_tag @user.image.url %></div>
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <th><%= User.human_attribute_name(:name) %></th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th><%= User.human_attribute_name(:age) %></th>
+          <td><%= @user.age %>
+            <% if @user.age.present? %>
+              (歳)
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th><%= User.human_attribute_name(:gender) %></th>
+          <td><%= @user.gender %></td>
+        </tr>
+        <tr>
+          <th><%= User.human_attribute_name(:residence) %></th>
+          <td><%= @user.residence %></td>
+        </tr>
+      </tbody>
+    </table>
 
-<h1>ユーザー詳細</h1>
-<div class="user-show-image"><%= image_tag @user.image.url %></div>
-  <table class="table table-hover">
-    <tbody>
-      <tr>
-        <th><%= User.human_attribute_name(:name) %></th>
-        <td><%= @user.name %></td>
-      </tr>
-      <tr>
-        <th><%= User.human_attribute_name(:age) %></th>
-        <td><%= @user.age %>
-          <% if @user.age.present? %>
-            (歳)
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th><%= User.human_attribute_name(:gender) %></th>
-        <td><%= @user.gender %></td>
-      </tr>
-      <tr>
-        <th><%= User.human_attribute_name(:residence) %></th>
-        <td><%= @user.residence %></td>
-      </tr>
-      <tr>
-        <th><%= User.human_attribute_name(:description) %></th>
-        <td><%= @user.description %></td>
-      </tr>
-    </tbody>
-  </table>
+    <% if @user.description.present? %>
+    <hr>
+    <div class="user-show-description">
+      <p class="show-description-title"><%= User.human_attribute_name(:description) %></p>
+      <p><%= @user.description %></p>
+    </div>
+    <hr>
+    <% end %>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 
+
 .h1{
   text-align: center;
 }
@@ -15,13 +16,16 @@
 }
 
 .header{
+  padding: 10px 0px;
+  background-color: gray;
+  border: solid 5px;
   text-align: center;
 }
 //ヘッダー(ナビゲーション)
 .header li{
   list-style: none;
   display: inline-block;
-  margin:5px 10px 0px 0px;
+  margin:5px 10px 0px 10px;
   font-size:20px;
   :hover{
     color:green;
@@ -29,7 +33,40 @@
   }
 }
 
+//home#home
+
+.home-content{
+  background: linear-gradient(-30deg, rgba(237,191,253,5),rgba(221,255,253,5)),
+  image-url('assets/images/seniors_home.jpg');
+  background-size:cover;
+  h1{
+    text-align: center;
+  }
+}
+
+.seniors-about{
+  padding: 10px 0px;
+  p{
+    padding-top: 10px;
+  }
+}
+
+.seniors-way{
+  p{
+    padding-top: 10px;
+  }
+}
+
 //users#index
+
+.user-index-list{
+  height: 100vh;
+  h2{
+    text-align: center;
+    padding-bottom: 5px;
+  }
+}
+
 .user-index-name{
   font-size:20px;
   margin-top:5px;
@@ -41,6 +78,16 @@
   border-radius: 50%
 }
 
+.user-index-search{
+  :hover{
+    background-color: #BAD3FF;
+  }
+}
+
+.user-index-paginate{
+  margin-bottom: 10px;
+}
+
 //users#new
 .user-submit{
   :hover{
@@ -49,6 +96,10 @@
 }
 
 //users#show
+
+.user-show{
+  height: 100vh;
+}
 .user-show-image img{
   width:200px;
   height:200px;
@@ -56,11 +107,27 @@
   border-radius: 50%;
 }
 
-//users#edit
-.col-md-offset-4.col-md-4.users-edir{
-  height: 2000px;
+.user-show-description{
+  text-align: center;
+  .show-description-title{
+    font-weight: bold;
+  }
 }
 
+//users#edit
+.user-edit{
+  height: 100vh;
+}
+
+.user-edit-submit{
+  :hover{
+    background-color: #DCC2FF;
+  }
+}
+
+.edit-image{
+  background-image: image-url('4.jpg');
+}
 //sessions#new
 .session-submit{
   :hover{
@@ -73,6 +140,7 @@
   position: fixed;
   bottom :0;
   width: 100%;
+  background-color: #FFEEFF;
   p{
     text-align: center;
   }

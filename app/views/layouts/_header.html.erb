@@ -1,6 +1,6 @@
 
 <div class="header">
-    <li><%= link_to 'ホーム', root_path %></li>
+  <li><%= link_to 'ホーム', root_path %></li>
   <% if logged_in? %>
     <li><%= link_to 'ユーザー一覧', users_path %></li>
     <li><%= link_to 'ユーザ編集', edit_user_path(current_user) %></li>
@@ -10,5 +10,5 @@
     <li><%= link_to '新規登録', new_user_path %></li>
     <li><%= link_to 'ログイン', login_path %></li>
   <% end %>
-    <li><%= link_to 'シニアーズの使い方', use_path %></li>
+  <li><%= link_to 'シニアーズの使い方', use_path %></li>
 </div>
