@@ -36,13 +36,14 @@
 //home#home
 
 .home-content{
-  background: linear-gradient(-30deg, rgba(237,191,253,5),rgba(221,255,253,5)),
-  image-url('assets/images/seniors_home.jpg');
+  background: linear-gradient(-30deg, rgba(237,191,253,20),rgba(221,255,253,20)),
+  image-url('seniors_home.jpg');
   background-size:cover;
   h1{
     text-align: center;
   }
 }
+
 
 .seniors-about{
   padding: 10px 0px;
@@ -123,10 +124,6 @@
   :hover{
     background-color: #DCC2FF;
   }
-}
-
-.edit-image{
-  background-image: image-url('4.jpg');
 }
 //sessions#new
 .session-submit{
