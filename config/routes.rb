@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post 'favorites',to: 'favorites#create'
   delete 'favorites', to: 'favorites#destroy'
 
+  get 'matcher', to: 'users#matcher'
+
   resources :users do
     resource :relationships, only: [:create, :destroy]
     get :follows, on: :member

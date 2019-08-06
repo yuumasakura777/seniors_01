@@ -68,6 +68,10 @@ class User < ApplicationRecord
     where(residence: residence)
   }
 
+  def matchers
+    User.where(id: passive_relationships.select(:following_id)).where(id: active_relationships.select(:follower_id))
+  end
+
   #フォローしようとしているユーザーがフォローされているユーザーの中から自分がいるかどうか調べる
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?

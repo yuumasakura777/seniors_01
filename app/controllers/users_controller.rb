@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     #直近の登録順に表示
     @users=User.recent.page(params[:page]).per(20)
 
+    @u=current_user.matchers
+
     #名前で検索
     if params[:name].present?
       @users=@users.search_by_name params[:name]
@@ -67,14 +69,24 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  #フォロー一覧
   def follows
     user=User.find(params[:id])
     @users=user.followings
   end
 
+  #フォロワー一覧
   def followers
     user=User.find(params[:id])
     @users=user.followers
+  end
+
+  def matchers
+    User.where(id: passive_relationships.select(:following_id)).where(id: active_relationships.select(:follower_id))
+  end
+
+  def matcher
+    @users=current_user.matchers
   end
 
   private
