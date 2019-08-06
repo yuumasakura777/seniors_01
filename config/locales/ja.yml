@@ -11,6 +11,7 @@ ja:
     models:
       user: ユーザー
       question: 質問
+      post: 投稿
     attributes:
       user:
         name: 名前(ニックネーム)
@@ -25,6 +26,8 @@ ja:
       question:
         title: タイトル
         content: 質問内容
+      post:
+        content: 投稿内容
 
   date:
     abbr_day_names:

@@ -35,6 +35,15 @@
           <% end %>
         </div>
         <p class="user-index-name"><%= link_to user.name, user %></p>
+
+        <% if current_user !=user %>
+          <% if user.followed_by?(current_user) %>
+            <span><%= link_to "フォロー済み", user_relationships_path(user.id), method: :delete %></span>
+          <% else %>
+            <span><%= link_to "フォローする", user_relationships_path(user.id), method: :post %></span>
+          <% end %>
+        <% end %>
+
         <% if current_user.admin? && !current_user?(user) %>
           <%= link_to 'ユーザー削除', user, method: :delete, data: {confirm: "#{user.name}を削除します。よろしいですか?"} %>
         <% end %>

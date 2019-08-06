@@ -1,3 +1,0 @@
-class Residence < ApplicationRecord
-  
-end

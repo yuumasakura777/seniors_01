@@ -1,0 +1,12 @@
+
+
+<% @users.each do |user| %>
+  <% if current_user != user %>
+    <% if user.followed_by?(current_user) %>
+        <p><%=link_to "フォロー解除", user_relationships_path(user.id), method: :delete %></p>
+        <%= user.name %>
+    <% else %>
+        <p><%=link_to "フォロー", user_relationships_path(user.id), method: :post %></p>
+    <% end %>
+  <% end %>
+<% end %>

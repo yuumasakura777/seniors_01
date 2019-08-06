@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :set_user, only:[:show, :edit, :update]
 
   def index
-
     #直近の登録順に表示
     @users=User.recent.page(params[:page]).per(20)
 
@@ -66,6 +65,16 @@ class UsersController < ApplicationController
     user=User.find(params[:id]).destroy
     flash[:success]="#{user.name}の削除に成功しました。"
     redirect_to users_path
+  end
+
+  def follows
+    user=User.find(params[:id])
+    @users=user.followings
+  end
+
+  def followers
+    user=User.find(params[:id])
+    @users=user.followers
   end
 
   private

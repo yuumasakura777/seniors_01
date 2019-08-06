@@ -1,0 +1,23 @@
+
+<div class="favorite-list">
+  <h2>お気に入り一覧</h2>
+  <p>ここにハートをつけた人の投稿が表示されます。</p>
+
+  <% @favorite_posts.each do |favorite| %>
+    <div class="favorite-content-top">
+      <%= image_tag favorite.user.image.url %>
+      <div class="favorite-content">
+        <%= favorite.content %>
+      </div>
+    </div>
+    <div class="favorite-user-name">
+      <%= favorite.user.name %>
+      <span class="favorite-created_at">
+        <%= favorite.created_at %>
+      </span>
+    </div>
+  <% end %>
+  <div class="post-index-paginate">
+    <%= paginate @favorite_posts %>
+  </div>
+</div>
