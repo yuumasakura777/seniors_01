@@ -125,9 +125,48 @@
   }
 }
 
-.user-show-follow{
-  display: inline-block;
-
+.user-image-follow{
+  position: relative;
+  .user-show-follow{
+    position: absolute;
+    bottom:0;
+    margin:0px 0px 10px 200px;
+    .show-folloing{
+      margin-right: 10px;
+      background-color: orange;
+      border-radius: 5px;
+      padding: 5px;
+      a{
+        color:black;
+      }
+    }
+    .show-follower{
+      background-color: orange;
+      border-radius: 5px;
+      padding: 5px;
+      a{
+        color: black;
+      }
+    }
+    .show-follow{
+      margin-top:5px;
+      background-color: blue;
+      border-radius: 5px;
+      padding: 5px;
+      a{
+        color:black;
+      }
+    }
+    .show-unfollow{
+      margin-top:5px;
+      background-color: red;
+      border-radius: 5px;
+      padding: 5px;
+      a{
+        color: black;
+      }
+    }
+  }
 }
 
 //users#edit
