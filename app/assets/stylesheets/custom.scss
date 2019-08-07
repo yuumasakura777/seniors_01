@@ -19,6 +19,7 @@
   padding: 10px 0px;
   text-align: center;
   background: linear-gradient(#77a1d3, #79cbca);
+  border-radius: 10px;
 }
 //ヘッダー(ナビゲーション)
 .header li{
@@ -133,42 +134,51 @@
     margin:0px 0px 10px 200px;
     .show-folloing{
       margin-right: 10px;
-      background-color: orange;
+      background-color: #FFCCCC;
       border-radius: 5px;
       padding: 5px;
+      border: solid #66FFCC 1px;
       a{
-        color:black;
+        color:#337ab7;
       }
     }
     .show-follower{
-      background-color: orange;
+      background-color: #FFCCCC;
       border-radius: 5px;
       padding: 5px;
+      border: solid #66FFCC 1px;
       a{
-        color: black;
+        color: #337ab7;
       }
     }
     .show-follow{
       margin-left: 10px;
-      background-color: blue;
       border-radius: 5px;
       display: inline-block;
-      a{
-        color:black;
-      }
+      background-color:#D9E5FF;
+      border: solid #005FFF 1px;
     }
     .show-unfollow{
       margin-left: 10px;
-      background-color: red;
       border-radius: 5px;
       display: inline-block;
-      a{
-        color: black;
-      }
+      width:90px;
+      height: 20px;
+      background-color: #FFD5EC;
+      border: solid #FF0461 1px;
     }
   }
 }
 
+
+.show-edit-link{
+  background-color:#CEF9DC;
+  width:90px;
+  border: solid #9057FF 1px;
+  color:#6699FF;
+  padding:2px;
+  border-radius: 5px;
+}
 //users#edit
 .user-edit{
   height: 100vh;
@@ -277,6 +287,45 @@
 
 .favorite-created_at{
   margin-left: 10px;
+}
+
+//users#matcher
+.matcher-image{
+  img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+}
+
+//follow-form
+
+.follow-form-image{
+  img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  }
+}
+
+.follow-form-follow{
+  background-color:#D9E5FF;
+  border: solid #005FFF 1px;
+  border-radius:5px;
+  width:65px;
+  margin-top: 5px;
+}
+
+.follow-form-unfollow{
+  background-color:#FFD5EC;
+  border: solid #FF0461 1px;
+  border-radius:5px;
+  width:90px;
+  margin-top: 5px;
+}
+
+.matcher-name{
+  margin-bottom: 10px;
 }
 
 //footer

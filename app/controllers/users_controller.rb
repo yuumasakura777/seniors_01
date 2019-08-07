@@ -85,11 +85,24 @@ class UsersController < ApplicationController
     @users=current_user.matchers
   end
 
+  def matcher_talk
+    @user=User.new
+  end
+
+  def matcher_talk_create
+    @user=User.new(user_params)
+
+    if @user.save
+      redirect_to matcher_talk_path
+    end
+
+  end
+
   private
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :age,
-      :gender, :residence, :description, :image)
+      :gender, :residence, :description, :image, :content)
     end
 
     def set_user

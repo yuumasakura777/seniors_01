@@ -1,25 +1,29 @@
 
+<% provide(:title, 'ユーザー詳細') %>
 
 <div class="user-show">
   <h1>ユーザー詳細</h1>
+
   <div class="user-image-follow">
     <span class="user-show-image">
       <%= image_tag @user.image.url %>
     </span>
-
     <div class="user-show-follow">
-      <span class="show-folloing"><%=link_to "フォロー", follows_user_path(@user.id) %></span>
-      <span class="show-follower"><%=link_to "フォロワー", followers_user_path(@user.id) %></span>
+      <!-- ログインしているのが現在のユーザーならフォロー、フォロワーボタン表示-->
+      <% if current_user ==@user %>
+        <span class="show-folloing"><%=link_to "フォロー", follows_user_path(@user.id) %></span>
+        <span class="show-follower"><%=link_to "フォロワー", followers_user_path(@user.id) %></span>
+      <% end %>
       <% if current_user != @user %>
-          <% if @user.followed_by?(current_user) %>
-            <% if current_user.matchers.present? %>
-              <span><%= link_to "マッチング済み", "#" %></span>
-            <% else %>
-              <span class="show-unfollow"><%=link_to "フォロー解除", user_relationships_path(@user.id), method: :delete %></p>
-            <% end %>
-          <% else %>
-              <span class="show-follow"><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
-          <% end %>
+        <% if @user.followed_by?(current_user) %>
+          <span class="show-unfollow">
+            <%=link_to "フォロー解除", user_relationships_path(@user.id), method: :delete %>
+          </span>
+        <% else %>
+          <span class="show-follow">
+            <%=link_to "フォローする", user_relationships_path(@user.id), method: :post %>
+          </span>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -51,11 +55,16 @@
 
     <% if @user.description.present? %>
     <hr>
-    <div class="user-show-description">
-      <p class="show-description-title"><%= User.human_attribute_name(:description) %></p>
-      <p><%= @user.description %></p>
-    </div>
+      <div class="user-show-description">
+        <p class="show-description-title"><%= User.human_attribute_name(:description) %></p>
+        <p><%= @user.description %></p>
+      </div>
     <hr>
     <% end %>
+
+    <p class="show-edit-link">
+      <%= link_to 'ユーザー編集', edit_user_path(current_user) %>
+    </p>
+
   </div>
 </div>

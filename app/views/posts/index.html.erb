@@ -1,10 +1,14 @@
 
+<% provide(:title, 'フリー掲示板') %>
+
 <div class="post-list">
-  <h2>掲示板投稿一覧</h2>
+  <h2>フリー掲示板</h2>
   <div class="new-post-link"><%= link_to '投稿する', new_post_path, class:'btn btn-primary' %></div>
   <% @posts.each do |post| %>
     <div class="post-content-top">
-      <%= image_tag post.user.image.url %>
+      <%= link_to user_path(post) do %>
+        <%= image_tag post.user.image.url %>
+      <% end %>
       <div class="content">
         <%= post.content %>
       </div>
@@ -24,7 +28,7 @@
       </div>
     </div>
     <div class="post-user-name">
-      <%=  post.user.name %>
+      <%= link_to post.user.name, user_path(post) %>
       <span class="post-created_at">
         <%= post.created_at %>
       </span>

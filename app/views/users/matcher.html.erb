@@ -1,6 +1,13 @@
 
-<h2>マッチング済みユーザー<h2>
 
-<% @users.each do |user| %>
-  <%= link_to user.name %>
-<% end %>
+<% provide(:title, 'マッチング一覧') %>
+
+<h2>マッチングユーザー</h2>
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-md-3">
+      <div class="matcher-image"><%= image_tag user.image.url %></div>
+      <div class="matcher-name"><%= link_to user.name, matcher_talk_path %></div>
+    </div>
+  <% end %>
+</div>

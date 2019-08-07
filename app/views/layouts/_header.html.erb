@@ -3,9 +3,9 @@
   <li><%= link_to 'ホーム', root_path %></li>
   <% if logged_in? %>
     <li><%= link_to 'ユーザー一覧', users_path %></li>
-    <li><%= link_to 'ユーザ編集', edit_user_path(current_user) %></li>
+    <li><%= link_to 'ユーザー詳細', user_path(current_user) %></li>
+    <li><%= link_to 'マッチングユーザー', matcher_path %></li>
     <li><%= link_to '掲示板', posts_path %></li>
-    <li><%= link_to 'お気に入り一覧', favorites_path %></li>
     <li><%= link_to '質問', questions_path %></li>
     <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
   <% else %>

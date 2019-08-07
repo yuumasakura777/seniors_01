@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   delete 'favorites', to: 'favorites#destroy'
 
   get 'matcher', to: 'users#matcher'
+  get 'matcher_talk', to: 'users#matcher_talk'
+  post 'matcher_talk', to: 'users#matcher_talk_create'
 
   resources :users do
     resource :relationships, only: [:create, :destroy]

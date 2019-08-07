@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_011333) do
+ActiveRecord::Schema.define(version: 2019_08_07_014449) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content", null: false
@@ -41,9 +41,6 @@ ActiveRecord::Schema.define(version: 2019_08_06_011333) do
     t.integer "answer_id"
   end
 
-  create_table "ralationships", force: :cascade do |t|
-  end
-
   create_table "relationships", force: :cascade do |t|
     t.integer "following_id"
     t.integer "follower_id"
@@ -66,6 +63,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_011333) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "residence", limit: 46
+    t.text "content"
     t.index ["age", "gender"], name: "index_users_on_age_and_gender_and_residence"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
