@@ -68,8 +68,10 @@ class User < ApplicationRecord
     where(residence: residence)
   }
 
+  #お互いフォローしていればマッチング
   def matchers
-    User.where(id: passive_relationships.select(:following_id)).where(id: active_relationships.select(:follower_id))
+    User.where(id: passive_relationships.select(:following_id))
+        .where(id: active_relationships.select(:follower_id))
   end
 
   #フォローしようとしているユーザーがフォローされているユーザーの中から自分がいるかどうか調べる

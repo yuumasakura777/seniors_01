@@ -12,7 +12,11 @@
       <span class="show-follower"><%=link_to "フォロワー", followers_user_path(@user.id) %></span>
       <% if current_user != @user %>
           <% if @user.followed_by?(current_user) %>
+            <% if current_user.matchers.present? %>
+              <span><%= link_to "マッチング済み", "#" %></span>
+            <% else %>
               <span class="show-unfollow"><%=link_to "フォロー解除", user_relationships_path(@user.id), method: :delete %></p>
+            <% end %>
           <% else %>
               <span class="show-follow"><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
           <% end %>

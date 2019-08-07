@@ -81,10 +81,6 @@ class UsersController < ApplicationController
     @users=user.followers
   end
 
-  def matchers
-    User.where(id: passive_relationships.select(:following_id)).where(id: active_relationships.select(:follower_id))
-  end
-
   def matcher
     @users=current_user.matchers
   end
