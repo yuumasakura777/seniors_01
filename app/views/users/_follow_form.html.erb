@@ -5,8 +5,14 @@
     <div class="col-md-3">
       <% if current_user != user %>
         <% if user.followed_by?(current_user) %>
-          <div class="follow-form-image"><%= image_tag user.image.url %></div>
-          <div class="follow-form-name"><%= user.name %></div>
+          <div class="follow-form-image">
+            <%= link_to user_path(user) do %>
+              <%= image_tag user.image.url %>
+            <% end %>
+          </div>
+          <div class="follow-form-name">
+            <%= link_to user.name, user_path(user) %>
+          </div>
           <p class="follow-form-unfollow">
             <%=link_to "フォロー解除", user_relationships_path(user.id), method: :delete %>
           </p>
@@ -20,4 +26,5 @@
       <% end %>
     </div>
   <% end %>
+  <%= paginate @users %>
 </div>

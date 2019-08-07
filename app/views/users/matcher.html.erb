@@ -4,10 +4,10 @@
 
 <h2>マッチングユーザー</h2>
 <div class="row">
-  <% @users.each do |user| %>
+  <% @matchers.each do |matcher| %>
     <div class="col-md-3">
-      <div class="matcher-image"><%= image_tag user.image.url %></div>
-      <div class="matcher-name"><%= link_to user.name, matcher_talk_path %></div>
+      <div class="matcher-image"><%= image_tag matcher.image.url %></div>
+      <div class="matcher-name"><%= link_to matcher.name, matcher_talk_path %></div>
     </div>
   <% end %>
 </div>

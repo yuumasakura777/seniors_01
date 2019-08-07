@@ -6,7 +6,7 @@
   <div class="new-post-link"><%= link_to '投稿する', new_post_path, class:'btn btn-primary' %></div>
   <% @posts.each do |post| %>
     <div class="post-content-top">
-      <%= link_to user_path(post) do %>
+      <%= link_to user_path(post.user) do %>
         <%= image_tag post.user.image.url %>
       <% end %>
       <div class="content">
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="post-user-name">
-      <%= link_to post.user.name, user_path(post) %>
+      <%= link_to post.user.name, user_path(post.user) %>
       <span class="post-created_at">
         <%= post.created_at %>
       </span>

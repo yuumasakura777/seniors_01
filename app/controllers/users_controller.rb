@@ -72,28 +72,32 @@ class UsersController < ApplicationController
   #フォロー一覧
   def follows
     user=User.find(params[:id])
-    @users=user.followings
+    @users=user.followings.page(params[:page]).per(20)
   end
 
   #フォロワー一覧
   def followers
     user=User.find(params[:id])
-    @users=user.followers
+    @users=user.followers.page(params[:page]).per(20)
   end
 
   def matcher
-    @users=current_user.matchers
+    @matchers=current_user.matchers
   end
 
   def matcher_talk
-    @user=User.new
+    @matcher=User.new
   end
 
   def matcher_talk_create
-    @user=User.new(user_params)
+    @matcher=User.new(user_params)
 
-    if @user.save
-      redirect_to matcher_talk_path
+    if @matcher.save
+      flash[:success]="投稿しました。"
+      redirect_to matcher_path
+    else
+      flash.now[:danger]="失敗しました。"
+      render :matcher_talk
     end
 
   end

@@ -1,1 +1,10 @@
 
+<h2>個別トーク</h2>
+
+<%= form_for(@matcher, url: matcher_talk_path, html: {method: "post"}) do |f| %>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+  <%= f.submit '投稿' %>
+<% end %>
