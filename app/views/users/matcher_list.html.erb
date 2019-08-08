@@ -7,7 +7,7 @@
   <% @matchers.each do |matcher| %>
     <div class="col-md-3">
       <div class="matcher-image"><%= image_tag matcher.image.url %></div>
-      <div class="matcher-name"><%= link_to matcher.name, matcher_talk_path %></div>
+      <div class="matcher-name"><%= link_to matcher.name, talks_path %></div>
     </div>
   <% end %>
 </div>

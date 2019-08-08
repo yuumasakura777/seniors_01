@@ -11,10 +11,7 @@ Rails.application.routes.draw do
   post 'favorites',to: 'favorites#create'
   delete 'favorites', to: 'favorites#destroy'
 
-  get 'matcher', to: 'users#matcher'
-  get 'matcher_talk', to: 'users#matcher_talk'
-  post 'matcher_talk', to: 'users#matcher_talk_create'
-
+  get 'matcher_list', to: 'users#matcher_list'
   resources :users do
     resource :relationships, only: [:create, :destroy]
     get :follows, on: :member
@@ -22,9 +19,12 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: [:index, :new, :create]
+
   resources :questions, only:[:index, :new, :create, :show] do
     resources :answers
   end
+
+  resources :talks, only:[:index, :new, :create]
 
 
 end

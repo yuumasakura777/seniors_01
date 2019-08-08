@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: :follower_id
   has_many :followers, through: :passive_relationships, source: :following
 
-  validates :name, presence:true, length: {maximum: 8}
+  validates :name, presence:true, length: {maximum: 8}, on: [:create, :update]
 
   #新規登録時のみバリデーション実行
   VALID_EMAIL_REGEX=/[a-z0-9]+@[a-z0-9]+\.[a-z0-9]+/

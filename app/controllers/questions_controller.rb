@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions=current_user.questions.all
+    @questions=Question.all
   end
 
   def new
@@ -28,6 +28,6 @@ class QuestionsController < ApplicationController
   private
 
     def question_params
-      params.require(:question).permit(:title, :content)
+      params.require(:question).permit(:title, :content, :answer_id)
     end
 end

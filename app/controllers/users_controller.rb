@@ -81,26 +81,10 @@ class UsersController < ApplicationController
     @users=user.followers.page(params[:page]).per(20)
   end
 
-  def matcher
+  def matcher_list
     @matchers=current_user.matchers
   end
 
-  def matcher_talk
-    @matcher=User.new
-  end
-
-  def matcher_talk_create
-    @matcher=User.new(user_params)
-
-    if @matcher.save
-      flash[:success]="投稿しました。"
-      redirect_to matcher_path
-    else
-      flash.now[:danger]="失敗しました。"
-      render :matcher_talk
-    end
-
-  end
 
   private
 

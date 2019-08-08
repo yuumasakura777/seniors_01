@@ -4,7 +4,6 @@
   text-align: center;
 }
 
-
 //エラーメッセージ
 .error_message{
   color: red;
@@ -71,11 +70,14 @@
 
 //users#index
 
+
+
 .user-index-list{
   height: 100vh;
+  border-radius: 10px;
   h2{
     text-align: center;
-    padding-bottom: 5px;
+    padding: 5px 0px 0px 5px;
   }
 }
 
@@ -200,7 +202,6 @@
 
 .post-list{
   margin: 10px 0px 0px 30px;
-  height: 100vh;
   h2{
     width:600px;
     text-align: center;
@@ -212,14 +213,14 @@
 
 .post-content-top{
   img{
-    width:70px;
-    height: 70px;
+    width:80px;
+    height: 80px;
     border-radius: 50%;
   }
   .content{
     margin-left: 20px;
     padding-top: 5px;
-    font-size: 18px;
+    font-size: 16px;
     display:inline-block;
     word-wrap: break-word;
     width:550px;
