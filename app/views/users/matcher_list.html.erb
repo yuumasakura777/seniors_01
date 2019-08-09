@@ -7,13 +7,11 @@
   <% @matchers.each do |matcher| %>
     <div class="col-md-3">
       <div class="matcher-image">
-        <%= link_to talks_path(talk_id: matcher.id) do %>
+        <%= link_to talks_path(matcher.id) do %>
           <%= image_tag matcher.image.url %>
         <% end %>
       </div>
       <div class="matcher-name">
-        <%= matcher.id %>
-
         <%= link_to matcher.name, talks_path(matcher.id) %>
       </div>
     </div>

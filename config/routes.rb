@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :new, :create]
 
-  resources :questions, only:[:index, :new, :create, :show] do
+  resources :questions do
     resources :answers
   end
 

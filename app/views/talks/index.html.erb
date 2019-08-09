@@ -1,7 +1,6 @@
 <h2>個別トーク</h2>
 
-<%= link_to 'トーク作成', new_talk_path %>
-
 <% @talks.each do |talk| %>
-  <%= talk.users.name %>:<%= talk.content %>
+  <%= link_to 'トーク作成', new_talk_path(talk.f_wer) %>
+  <p><%= talk.user.name %>:<%= talk.content %></p>
 <% end %>

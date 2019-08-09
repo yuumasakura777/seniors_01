@@ -5,4 +5,7 @@ class Question < ApplicationRecord
 
   has_many :answers
   belongs_to :user
+
+  scope :recent, ->{order(created_at: :desc)}
+
 end

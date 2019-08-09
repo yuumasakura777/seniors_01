@@ -1,5 +1,7 @@
 
 <%= form_with model:@talk, local:true do |f| %>
+<%= f.hidden_field :f_wing , value: @talk.f_wing %>
+<%= f.hidden_field :f_wer , value: @talk.f_wer %>
   <div class="form-group">
     <%= f.label :content %>
     <%= f.text_area :content, class: 'form-control' %>

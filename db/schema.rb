@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_08_133451) do
+ActiveRecord::Schema.define(version: 2019_08_09_125205) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content", null: false
@@ -27,12 +27,6 @@ ActiveRecord::Schema.define(version: 2019_08_08_133451) do
   end
 
   create_table "matchers", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "talk_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["talk_id"], name: "index_matchers_on_talk_id"
-    t.index ["user_id"], name: "index_matchers_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -48,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_08_08_133451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "answer_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -65,6 +58,9 @@ ActiveRecord::Schema.define(version: 2019_08_08_133451) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "f_wing"
+    t.integer "f_wer"
   end
 
   create_table "users", force: :cascade do |t|

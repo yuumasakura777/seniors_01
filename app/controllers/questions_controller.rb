@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions=Question.all
+    @questions=current_user.questions.recent
   end
 
   def new

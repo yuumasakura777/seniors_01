@@ -4,7 +4,8 @@
   <div class="col-md-12">
     <h2><%= @question.title %></h2>
     <div>
-      内容: <%= @question.content %>
+      <p>内容</p>
+      <%= @question.content %>
     </div>
     <hr>
     <table class="table table-striped">
@@ -15,22 +16,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><%= @question.answers.content %></td>
-          </tr>
+          <% @question.answers.each do |answer| %>
+            <tr>
+              <td><%= answer.content %></td>
+            </tr>
+          <% end %>
         </tbody>
       <% else %>
         まだ回答がありません。
       <% end %>
     </table>
-    <h3>質問返信</h3>
-    <%= form_with model: [@question, @answer], local: true do |f| %>
-      <%= hidden_field :question_id, {value: @question.id} %>
-      <div class="form-group">
-        <%= f.label :content %>
-        <%= f.text_area :conetnt, class: 'form-control' %>
-      </div>
-      <%= f.submit "投稿" %>
+
+    <% if current_user.admin? %>
+      <h3>質問返信</h3>
+      <%= form_with model: [@question,@answer], local: true do |f| %>
+        <%= f.hidden_field :question_id, {value: @question.id} %>
+        <div class="form-group">
+          <%= f.label :content %>
+          <%= f.text_area :content, class:"form-control" %>
+        </div>
+        <%= f.submit "Post",class: "btn btn-primary" %>
+      <% end %>
     <% end %>
   </div>
 </div>

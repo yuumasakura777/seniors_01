@@ -13,8 +13,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: :follower_id
   has_many :followers, through: :passive_relationships, source: :following
 
-  has_many :matchers
-  has_many :talks, through: :matchers, source: :talk
+  has_many :talks, dependent: :destroy
 
   validates :name, presence:true, length: {maximum: 8}, on: [:create, :update]
 
