@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/paulwittmann/rails-erd.git
+  revision: 9ccb094fa29b095d5549271f48c65af8bb53f749
+  branch: mavericks
+  specs:
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -72,6 +83,7 @@ GEM
       mime-types (>= 1.16)
     childprocess (1.0.1)
       rake (< 13.0)
+    choice (0.1.7)
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
@@ -183,6 +195,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.6.0)
+    ruby-graphviz (1.0.9)
     ruby_dep (1.5.0)
     rubyzip (1.2.3)
     sass (3.7.4)
@@ -258,6 +271,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.3)
+  rails-erd!
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

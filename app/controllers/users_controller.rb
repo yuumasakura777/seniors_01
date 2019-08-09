@@ -81,6 +81,7 @@ class UsersController < ApplicationController
     @users=user.followers.page(params[:page]).per(20)
   end
 
+  #マッチングしたユーザーの一覧表示
   def matcher_list
     @matchers=current_user.matchers
   end
@@ -90,7 +91,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :age,
-      :gender, :residence, :description, :image, :content)
+      :gender, :residence, :description, :image,)
     end
 
     def set_user

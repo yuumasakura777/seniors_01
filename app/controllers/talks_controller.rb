@@ -23,6 +23,7 @@ class TalksController < ApplicationController
   private
 
     def talk_params
-      params.require(:talk).permit(:content)
+      params.require(:talk).permit(:content, :user_id)
     end
+
 end

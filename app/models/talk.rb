@@ -1,3 +1,4 @@
 class Talk < ApplicationRecord
-  belongs_to :relationship
+  has_many :matchers
+  has_many :users, through: :matchers, source: :user
 end
