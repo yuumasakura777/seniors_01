@@ -5,9 +5,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    favorite=Favorite.new
-    favorite.user_id=current_user.id
-    favorite.post_id=params[:post_id]
+    favorite=current_user.favorites.build(post_id: params[:post_id])
 
     if favorite.save
       flash[:success]="お気に入りに登録しました。"
@@ -19,8 +17,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-     favorite=Favorite.find_by(post_id: params[:post_id], user_id: current_user.id)
-     favorite.destroy
+     Favorite.find_by(post_id: params[:post_id], user_id: current_user.id).destroy
      flash[:success]="お気に入り登録を外しました。"
      redirect_to posts_path
   end

@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions=current_user.questions.recent
+    @questions=Question.recent
   end
 
   def new
@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
 
     if @question.save
       flash[:success]="質問を投稿しました。"
-      redirect_to new_question_path
+      redirect_to questions_path
     else
       flash.now[:danger]="質問投稿に失敗しました。"
       render :new

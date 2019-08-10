@@ -1,6 +1,6 @@
 
 <%= form_with model:[@answer,@question], local:true do |f| %>
-  <%= f.fidden_field :question_id, :value=>@question.id %>
+  <%= f.fidden_field :question_id, value: @question.id %>
   <%= f.label :content %>
   <%= f.text.area :content %>
   <%= f.sabumit '返信' %>

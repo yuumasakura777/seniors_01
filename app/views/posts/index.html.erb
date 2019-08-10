@@ -3,8 +3,12 @@
 
 <div class="post-list">
   <h2>フリー掲示板</h2>
-  <div class="new-post-link"><%= link_to '投稿する', new_post_path, class:'btn btn-primary' %></div>
+  <div class="new-link-button">
+    <%= link_to 'あなたのお気に入り', favorites_path, class: 'btn btn-success' %>
+    <%= link_to '投稿する', new_post_path, class:'btn btn-primary' %>
+  </div>
   <% @posts.each do |post| %>
+    <hr>
     <div class="post-content-top">
       <%= link_to user_path(post.user) do %>
         <%= image_tag post.user.image.url %>
@@ -32,6 +36,7 @@
       <span class="post-created_at">
         <%= post.created_at %>
       </span>
+      <hr>
     </div>
   <% end %>
   <div class="post-index-paginate"><%= paginate @posts %></div>

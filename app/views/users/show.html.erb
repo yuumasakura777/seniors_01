@@ -10,11 +10,12 @@
     </span>
     <div class="user-show-follow">
       <!-- ログインしているのが現在のユーザーならフォロー、フォロワーボタン表示-->
-      <% if current_user ==@user %>
+      <% if current_user?(@user) %>
         <span class="show-folloing"><%=link_to "フォロー", follows_user_path(@user.id) %></span>
         <span class="show-follower"><%=link_to "フォロワー", followers_user_path(@user.id) %></span>
       <% end %>
-      <% if current_user != @user %>
+      <!--自分以外に場合フォローフォロワーボタン表示(自分をフォローしないようにする)-->
+      <% if !current_user?(@user) %>
         <% if @user.followed_by?(current_user) %>
           <span class="show-unfollow">
             <%=link_to "フォロー解除", user_relationships_path(@user.id), method: :delete %>
@@ -63,13 +64,11 @@
     <% end %>
 
     <!--　ログインしているユーザーが現在のユーザーなら表示-->
-    <% if current_user==@user %>
+    <% if current_user?(@user) %>
       <p class="show-edit-link">
           <%= link_to 'ユーザー編集', edit_user_path(current_user) %>
       </p>
     <% end %>
-
-
 
   </div>
 </div>
