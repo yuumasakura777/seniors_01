@@ -66,7 +66,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   #メイラー
-  host = 'seniors777.herokuapp.com'
+  host = 'localhost'
   Rails.application.routes.default_url_options[:host] = host
 
   # Ignore bad email addresses and do not raise email delivery errors.

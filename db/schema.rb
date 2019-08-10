@@ -26,9 +26,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_125205) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "matchers", force: :cascade do |t|
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "content", null: false
     t.datetime "created_at", null: false
@@ -67,14 +64,14 @@ ActiveRecord::Schema.define(version: 2019_08_09_125205) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.integer "age", limit: 30
-    t.integer "gender", limit: 1
+    t.integer "age"
+    t.integer "gender"
     t.text "description"
     t.string "image"
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "residence", limit: 46
+    t.integer "residence"
     t.index ["age", "gender"], name: "index_users_on_age_and_gender_and_residence"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

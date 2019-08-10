@@ -3,11 +3,11 @@
 if Rails.env.production?
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    address: 'Tseniors777@gmail.com',
+    address: 'smtp.gmail.com',
     domain: 'gmail.com',
     port: 587,
-    user_name: 'Tseniors777@gmail.com',
-    password: 'seniors777616',
+    user_name: 'Gmail のメールアドレス',
+    password: 'Gmail のパスワード',
     authentication: 'plain',
     enable_starttls_auto: true
   }

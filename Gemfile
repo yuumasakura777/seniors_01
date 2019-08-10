@@ -58,6 +58,7 @@ group :development do
   gem 'letter_opener'
   gem 'rails-erd'
   gem 'sqlite3'
+
 end
 
 group :test do
