@@ -13,14 +13,11 @@ Rails.application.routes.draw do
 
   get 'matcher_list', to: 'users#matcher_list'
 
-  #resources :users do
-  #  resource :relationships, only: [:create, :destroy]
-  #  get :follows, on: :member
-  #  get :followers, on: :member
-  #end
-
-  get '/new',to: 'users#new', as: 'new_user'
-  post '/create', to:'users#create', as: 'users'
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+    get :follows, on: :member
+    get :followers, on: :member
+  end
 
   resources :posts, only: [:index, :new, :create]
 

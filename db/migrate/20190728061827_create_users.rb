@@ -4,9 +4,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :name, null:false
       t.string :email, null:false
       t.string :password_digest, null:false
-      t.integer :age, limit:30
-      t.integer :gender, limit:1
-      t.integer :residence, limit:46
+      t.integer :age
+      t.integer :gender
+      t.integer :residence
       t.text :description
       t.string :image
       t.boolean :admin, defalut:false

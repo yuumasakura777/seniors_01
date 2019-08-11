@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts=Post.recent.page(params[:page]).per(20)
+    @posts=Post.recent.includes(:favorite_users).page(params[:page]).per(20)
   end
 
   def new
