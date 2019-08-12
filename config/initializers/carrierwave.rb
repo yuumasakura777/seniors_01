@@ -1,13 +1,13 @@
 
 
 #require 'carrierwave/storage/abstract'
-#require 'carrierwave/storage/file'
-#require 'carrierwave/storage/fog'
+ require 'carrierwave/storage/file'
+ require 'carrierwave/storage/fog'
 
 
 if Rails.env.production?
   CarrierWave.configure do |config|
-    config.strage= :fog
+    config.storage= :fog
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
       provider: 'AWS',
