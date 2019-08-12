@@ -77,4 +77,4 @@ end
   gem 'kaminari'
 #amazon S3
   gem 'carrierwave'
-  gem 'fog'
+  gem 'fog-aws'
