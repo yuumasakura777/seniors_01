@@ -18,8 +18,4 @@ if Rails.env.production?
     config.fog_directory = ENV['mikagamit777']
     config.fog_public = true
   end
-else
-  CarrierWave.configure do |config|
-    config.storage = :file
-  end
 end
