@@ -1,4 +1,5 @@
 
+# -*- coding: utf-8 -*-
 
 CarrierWave.configure do |config|
   config.fog_credentials = {
@@ -14,7 +15,7 @@ CarrierWave.configure do |config|
   config.cache_storage = :fog
   config.fog_directory = ENV['mikagamit777']
   config.asset_host = 'https://mikagamit777.s3.amazonaws.com'　
-  #config.asset_host = 'mikagamit777'
+
 
 end
 # 日本語の文字化けを防ぐ
