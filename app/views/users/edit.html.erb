@@ -17,7 +17,7 @@
       </div>
       <div class=" form-group">
         <%= f.label :age %>
-        <%= f.text_field :age, class: 'form-control' %>
+        <%= f.text_field :age, placeholder: '60〜90の数字を入力してください。', class: 'form-control' %>
       </div>
       <div class=" form-group">
         <%= f.select :gender, User.genders.keys, include_blank: '性別を選択' %>

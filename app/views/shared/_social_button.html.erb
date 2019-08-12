@@ -1,0 +1,11 @@
+
+
+<div class='social_button'>
+  <h3>シニアーずをシェア!</h3>
+  <p>以下のSNSボタンより友達や知り合いにシニアーずをシェアしよう!</p>
+  <ul>
+    <li class="twitter-button"><%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %></li>
+    <li class="facebook-button"><%= link_to 'Facebook', "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", title: 'Facebook', target: '_blank' %></li>
+    <li class="line-button"><%= link_to 'LINE', "http://line.me/R/msg/text/?#{request.url}", title: 'LINE', target: '_blank' %></li>
+  </ul>
+</div>

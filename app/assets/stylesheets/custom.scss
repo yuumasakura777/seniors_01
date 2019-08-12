@@ -4,10 +4,54 @@
   text-align: center;
 }
 
+//shared
 //エラーメッセージ
 .error_message{
+  margin: 10px;
   color: red;
 }
+
+//ソーシャルボタン
+.social_button{
+  padding: 10px;
+  h3{
+    padding-left: 15px;
+  }
+  p{
+    padding: 10px 0px 0px 30px;
+  }
+  li{
+    display: inline-block;
+    margin:10px 15px 0px 0px;
+    padding-top: 10px;
+  }
+  .twitter-button{
+    background-color: #008DDE;
+    border-radius: 5px 5px 0px 0px;
+    padding:0px 3px 3px 3px;
+    a{
+      color: white;
+    }
+  }
+  .facebook-button{
+    border-radius: 5px 5px 0px 0px;
+    padding:0px 3px 3px 3px;
+    background-color: #2e4a88;
+    a{
+      color: white;
+    }
+  }
+  .line-button{
+    border-radius: 5px 5px 0px 0px;
+    padding:0px 5px 3px 5px;
+    background-color: #00EE00;
+    a{
+      color: white;
+    }
+  }
+}
+
+
 
 //フラッシュ
 .alert{
@@ -17,8 +61,7 @@
 .header{
   padding: 10px 0px;
   text-align: center;
-  background: linear-gradient(#77a1d3, #79cbca);
-  border-radius: 10px;
+  background-color: #FFD5EC;
 }
 //ヘッダー(ナビゲーション)
 .header li{
@@ -29,6 +72,7 @@
   :hover{
     color:green;
     background-color: #FFFFCC;
+    border-radius: 10px;
   }
   a{
     color: black;
@@ -41,8 +85,8 @@
   background-image: linear-gradient(-30deg, rgba(237,191,253,0.7),rgba(221,255,253,0.7)),
   url("seniors_home.jpg");
   background-size: cover;
-
   height: 100vh;
+
   h1{
     text-align: center;
   }
@@ -69,8 +113,6 @@
 }
 
 //users#index
-
-
 
 .user-index-list{
   height: 100vh;
@@ -103,6 +145,21 @@
 }
 
 //users#new
+
+.user-new{
+  background-color: #EEFFFF	;
+  height: 100vh;
+  h2{
+    text-align: center;
+    padding-top: 30px;
+    font-size: 30px;
+    margin:0
+  }
+  .col-md-offset-4.col-md-4.user-container{
+    margin-top:30px;
+  }
+}
+
 .user-submit{
   :hover{
     background-color: #CCFFCC;
@@ -192,12 +249,24 @@
   }
 }
 //sessions#new
-.session-submit{
-  :hover{
-    background-color: #CCFFFF;
+.session-new{
+  background-color: #E6FFE9;
+  height: 100vh;
+  h2{
+    text-align: center;
+    padding-top: 30px;
+    margin:0;
+    font-size: 30px;
+  }
+  .col-md-offset-4.col-md-4.session-container{
+    margin-top: 50px;
+  }
+  .session-submit{
+    :hover{
+      background-color: #CCFFFF;
+    }
   }
 }
-
 //posts#index
 
 .post-list{
@@ -334,8 +403,10 @@
   position: fixed;
   bottom :0;
   width: 100%;
-  background-color: #FFEEFF;
+  background-color: #DCC2FF	;
+  height: 40px;
   p{
+    padding-top:10px;
     text-align: center;
   }
 }
