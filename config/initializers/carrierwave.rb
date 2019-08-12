@@ -13,6 +13,7 @@ CarrierWave.configure do |config|
   config.remove_previously_stored_files_after_update = false
   config.cache_storage = :fog
   config.fog_directory = ENV['mikagamit777']
+  config.asset_host = 'https://mikagamit777.s3.amazonaws.com'　
   #config.asset_host = 'mikagamit777'
 
 end
