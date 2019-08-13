@@ -78,3 +78,4 @@ end
 #amazon S3
   gem 'carrierwave'
   gem 'fog-aws'
+#mailer
