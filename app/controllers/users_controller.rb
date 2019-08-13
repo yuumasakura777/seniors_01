@@ -40,8 +40,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in @user
-      #NotificationMailer.send_confirm_to_user(@user).deliver
-      redirect_to user_path(@user)
+      NotificationMailer.send_confirm_to_user(@user).deliver
       flash[:success]="ユーザー登録が完了しました。"
     else
       flash.now[:danger]="ユーザー登録に失敗しました。"
