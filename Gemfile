@@ -79,3 +79,4 @@ end
   gem 'carrierwave'
   gem 'fog-aws'
 #mailer
+  gem 'ruby-gmail'
