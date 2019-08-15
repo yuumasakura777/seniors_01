@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :logged_in_user, only:[:index, :new, :create]
+  skip_before_action :logged_in_user, only:[:index, :new, :create, :user_create]
   before_action :set_user, only:[:show, :edit, :update]
 
   def index
@@ -39,10 +39,10 @@ class UsersController < ApplicationController
     @user=User.new(user_params)
 
     if @user.save
-      log_in @user
+      #log_in @user
       NotificationMailer.send_confirm_to_user(@user).deliver
       redirect_to user_create_path
-      flash[:success]="ユーザー登録が完了しました。"
+      flash[:success]="ユーザー登録をしました。"
     else
       flash.now[:danger]="ユーザー登録に失敗しました。"
       render :new
