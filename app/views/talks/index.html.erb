@@ -1,6 +1,27 @@
-<h2>個別トーク</h2>
 
-<% @talks.each do |talk| %>
-  <%= link_to 'トーク作成', new_talk_path(talk.f_wer) %>
-  <p><%= talk.user.name %>:<%= talk.content %></p>
-<% end %>
+<% provide(:title, "個別トーク") %>
+
+<div class="talk-list">
+  <h2>個別トーク</h2>
+  <%= link_to 'トーク作成', new_talk_path(id: @talk.f_wer), class: 'btn btn-primary' %>
+
+  <% @talks.each do |my_talk| %>
+    <hr>
+    <div class="talks-content-top">
+      <%= image_tag my_talk.user.image.url %>
+      <div class="talk-content">
+        <%= my_talk.content %>
+      </div>
+    </div>
+    <div class="talk-user-name">
+      <%= my_talk.user.name %>
+      <span class="talk-created_at">
+        <%= my_talk.created_at %>
+      </span>
+    </div>
+    <hr>
+  <% end %>
+  <div class="talk-paginate">
+    <%= paginate @talks %>
+  </div>
+</div>

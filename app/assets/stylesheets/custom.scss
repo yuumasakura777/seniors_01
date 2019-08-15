@@ -410,6 +410,31 @@
   text-align: center;
 }
 
+//talks#index
+.talk-list{
+  margin-bottom: 50px;
+  h2{
+    text-align: center;
+  }
+  .talks-content-top{
+    img{
+      width:80px;
+      height:80px;
+      border-radius: 80px;
+    }
+    .talk-content{
+      margin-left: 20px;
+      display:inline-block;
+    }
+  }
+
+  .talk-user-name{
+    margin-bottom: 20px;
+    .talk-created_at{
+      margin-left: 20px;
+    }
+  }
+}
 //footer
 .footer{
   position: fixed;

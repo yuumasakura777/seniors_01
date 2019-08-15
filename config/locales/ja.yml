@@ -13,6 +13,7 @@ ja:
       question: 質問
       post: 投稿
       answer: 返信
+      talk: トーク
     attributes:
       user:
         name: 名前(ニックネーム)
@@ -31,6 +32,8 @@ ja:
         content: 投稿内容
       answer:
         content: 返信内容
+      talk:
+        content: 内容
 
   date:
     abbr_day_names:
