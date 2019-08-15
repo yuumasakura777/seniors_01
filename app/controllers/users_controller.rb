@@ -41,11 +41,17 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       NotificationMailer.send_confirm_to_user(@user).deliver
+      redirect_to user_create_path
       flash[:success]="ユーザー登録が完了しました。"
     else
       flash.now[:danger]="ユーザー登録に失敗しました。"
       render :new
     end
+  end
+
+  #新規登録時に遷移
+  def user_create
+
   end
 
   def show
