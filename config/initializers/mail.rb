@@ -8,7 +8,7 @@ if Rails.env.production?
     domain: 'gmail.com',
     port: 587,
     user_name: 'tseniors777@gmail.com',
-    password: 'T-yuuma777',
+    password: 'uegobodbcnnrwxdu',
     authentication: 'plain',
     enable_starttls_auto: true
   }
