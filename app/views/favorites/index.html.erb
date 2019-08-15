@@ -3,9 +3,10 @@
 
 <div class="favorite-list">
   <h2>お気に入り投稿一覧</h2>
-  <p>ここにハートをつけた人の投稿が表示されます。</p>
+  <p>ここに星をつけた人の投稿が表示されます。</p>
 
   <% @favorite_posts.each do |favorite| %>
+    <hr>
     <div class="favorite-content-top">
       <%= image_tag favorite.user.image.url %>
       <div class="favorite-content">
@@ -18,8 +19,9 @@
         <%= favorite.created_at %>
       </span>
     </div>
+    <hr>
   <% end %>
-  <div class="post-index-paginate">
+  <div class="favorite-index-paginate">
     <%= paginate @favorite_posts %>
   </div>
 </div>

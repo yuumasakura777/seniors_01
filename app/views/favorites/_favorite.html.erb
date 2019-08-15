@@ -1,0 +1,15 @@
+
+
+
+<% if !post.favorite_users.include?(current_user) %>
+   <!--いいねする-->
+  <%= link_to favorites_path(post_id: post.id), method: :post, remote: true do %>
+    <i class="fas fa-star gray-star"></i>
+  <% end %>
+<% else %>
+  <!-- 既にいいねしている場合-->
+  <%= link_to favorites_path(post_id: post.id), method: :delete, remote: true do %>
+    <i class="fas fa-star gold-star"></i>
+  <% end %>
+<% end %>
+<%= post.favorite_users.count %>

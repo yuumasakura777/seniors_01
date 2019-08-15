@@ -51,8 +51,6 @@
   }
 }
 
-
-
 //フラッシュ
 .alert{
   text-align: center;
@@ -125,7 +123,7 @@
 
 .user-index-name{
   font-size:20px;
-  margin-top:5px;
+  margin:5px 0px 40px 0px;
 }
 
 .user-index-image img{
@@ -141,7 +139,7 @@
 }
 
 .user-index-paginate{
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 //users#new
@@ -167,6 +165,10 @@
 }
 
 //users#show
+
+#follow-event{
+  display: none;
+}
 
 .user-show{
   height: 100vh;
@@ -270,7 +272,7 @@
 //posts#index
 
 .post-list{
-  margin: 10px 0px 0px 30px;
+  margin: 10px 0px 60px 30px;
   h2{
     width:600px;
     text-align: center;
@@ -295,20 +297,21 @@
     width:550px;
 
   }
-  .iine{
+  .favorite-star{
     margin-left: 20px;
     display:inline-block;
   }
 }
 
-.fas.fa-heart.gray-heart{
+.fas.fa-star.gray-star{
   color:gray;
   font-size: 18px;
 }
 
-.fas.fa-heart.red-heart{
-  color:red;
+.fas.fa-star.gold-star{
+  color:gold;
   font-size: 18px;
+
 }
 
 .post-user-name{
@@ -327,7 +330,7 @@
 
 .favorite-list{
   height: 100vh;
-  margin-left: 20px;
+  margin-left:20px;
   h2{
     text-align: center;
   }
@@ -357,6 +360,10 @@
 
 .favorite-created_at{
   margin-left: 10px;
+}
+
+.favorite-index-paginate{
+  margin-bottom: 30px;
 }
 
 //users#matcher
@@ -396,6 +403,11 @@
 
 .matcher-name{
   margin-bottom: 10px;
+}
+
+//questions#new
+.question-new{
+  text-align: center;
 }
 
 //footer

@@ -1,9 +1,13 @@
 
+
 <% provide(:title, 'ユーザー詳細') %>
 
-<div class="user-show">
-  <h1>ユーザー詳細</h1>
 
+<div class="user-show">
+  <div id="follow-event">
+    <p><%= @user.name %>さんをフォローしました。</p>
+  </div>
+  <h1>ユーザー詳細</h1>
   <div class="user-image-follow">
     <span class="user-show-image">
       <%= image_tag @user.image.url %>
@@ -18,11 +22,11 @@
       <% if !current_user?(@user) %>
         <% if @user.followed_by?(current_user) %>
           <span class="show-unfollow">
-            <%=link_to "フォロー解除", user_relationships_path(@user.id), method: :delete %>
+            <%= link_to "フォロー解除", user_relationships_path(@user.id), method: :delete %>
           </span>
         <% else %>
           <span class="show-follow">
-            <%=link_to "フォローする", user_relationships_path(@user.id), method: :post %>
+            <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
           </span>
         <% end %>
       <% end %>

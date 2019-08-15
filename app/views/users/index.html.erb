@@ -20,12 +20,16 @@
       <div class="form-group">
         <%= select_tag :residence, options_for_select(User.residences), include_blank: "居住地で検索" %>
       </div>
-      <div class="user-index-search"><%= submit_tag "検索" %></div>
+      <div class="user-index-search">
+        <%= button_tag :type => "submit" do %>
+          <i class="fa fa-search"></i>検索
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
-<div class="row">
-  <div class="user-index-list">
+<div class="user-index-list">
+  <div class="row">
     <h2>ユーザー一覧</h2>
     <% @users.each do |user| %>
       <div class="col-md-3">
@@ -34,13 +38,17 @@
             <%= image_tag user.image.url %>
           <% end %>
         </div>
-        <p class="user-index-name"><%= link_to user.name, user %></p>
-        <!-- 管理者だけに表示される -->
-        <% if current_user.admin? && !current_user?(user) %>
-          <%= link_to 'ユーザー削除', user, method: :delete, data: {confirm: "#{user.name}を削除します。よろしいですか?"} %>
-        <% end %>
+        <div class="user-index-name">
+          <%= link_to user.name, user %>
+          <!-- 管理者だけに表示される -->
+          <% if current_user.admin? && !current_user?(user) %>
+            <%= link_to 'ユーザー削除', user, method: :delete, data: {confirm: "#{user.name}を削除します。よろしいですか?"} %>
+          <% end %>
+        </div>
       </div>
     <% end %>
-    <div class="user-index-paginate"><%= paginate @users %></div>
+    <div class="user-index-paginate">
+      <%= paginate @users %>
+    </div>
   </div>
 </div>

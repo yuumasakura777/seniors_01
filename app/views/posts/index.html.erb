@@ -16,19 +16,10 @@
       <div class="content">
         <%= post.content %>
       </div>
-       <!--いいねする-->
-      <div class="iine">
-        <% if !post.favorite_users.include?(current_user) %>
-          <%= link_to favorites_path(post_id: post.id), method: :post do %>
-            <i class="fas fa-heart gray-heart"></i>
-          <% end %>
-       <!-- 既にいいねしている場合-->
-        <% else %>
-          <%= link_to favorites_path(post_id: post.id), method: :delete do %>
-            <i class="fas fa-heart red-heart"></i>
-          <% end %>
-        <% end %>
-        <%= post.favorite_users.count %>
+      <div class="favorite-star">
+        <div id="favorites_buttons_<%= post.id %>">
+          <%= render 'favorites/favorite', post: post%>
+        </div>
       </div>
     </div>
     <div class="post-user-name">
@@ -36,8 +27,8 @@
       <span class="post-created_at">
         <%= post.created_at %>
       </span>
-      <hr>
     </div>
+    <hr>
   <% end %>
   <div class="post-index-paginate"><%= paginate @posts %></div>
 </div>

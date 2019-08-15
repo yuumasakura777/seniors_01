@@ -88,7 +88,6 @@ class UsersController < ApplicationController
     @matchers=current_user.matchers
   end
 
-
   private
 
     def user_params
