@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
 
   before_action :logged_in_user
 
-
   include SessionsHelper
 
   private

@@ -22,7 +22,7 @@ class User < ApplicationRecord
   validates :email, presence:true, uniqueness: true, format: {with: VALID_EMAIL_REGEX}, on: :create
 
   #新規登録時のみバリデーション実行
-  VALID_PASSWORD_REGEX=/[a-z0-9]+/
+  VALID_PASSWORD_REGEX=/(?=.*[a-z])(?=.*\d)/
   validates :password, length: {minimum: 8, maximum: 20}, format: {with: VALID_PASSWORD_REGEX}, on: :create
 
   #年齢が数字で60歳〜90歳でなければ弾く

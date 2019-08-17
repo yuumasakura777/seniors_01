@@ -2,16 +2,14 @@ class TalksController < ApplicationController
 
   def index
     @talk = Talk.new
-    @talk.f_wer = params[:id]
-    @talks = Talk.where(f_wing: current_user).where(f_wer: params[:id])
-              .or(Talk.where(f_wer: current_user).where(f_wing: params[:id]))
-              .order(id: "DESC").page(params[:page]).per(20)
+    @talk.partner_id = params[:id]
+    @talks = Talk.talk_matchers(current_user, params[:id]).page(params[:page]).per(20)
   end
 
   def new
     @talk = Talk.new
-    @talk.f_wer = params[:id]
-    @talk.f_wing = current_user.id
+    @talk.partner_id = params[:id]
+    @talk.myself_id = current_user.id
   end
 
   def create
@@ -19,11 +17,11 @@ class TalksController < ApplicationController
 
     if @talk.save
       flash[:success]="投稿しました。"
-      redirect_to talks_path(id: talk_params[:f_wer])
+      redirect_to talks_path(id: talk_params[:partner_id])
     else
       flash.now[:danger]="失敗しました。"
       #render :new
-      redirect_to talks_path(id: talk_params[:f_wer])
+      redirect_to talks_path(id: talk_params[:partner_id])
     end
     #binding.pry
   end
@@ -31,6 +29,6 @@ class TalksController < ApplicationController
   private
 
     def talk_params
-      params.require(:talk).permit(:content, :f_wer, :f_wing)
+      params.require(:talk).permit(:content, :myself_id, :partner_id)
     end
 end

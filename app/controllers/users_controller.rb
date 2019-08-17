@@ -88,28 +88,6 @@ class UsersController < ApplicationController
     @matchers=current_user.matchers
   end
 
-  def send_gmail
-    require "gmail"
-
-    username = "tseniors777@gmail.com"
-    password = "uegobodbcnnrwxdu"
-
-    gmail = Gmail.new(username, password)
-
-    message =
-    gmail.generate_message do
-      to "mikagamit777@gmail.com"
-      subject "題名"
-      html_part do
-        content_type "text/html; charset=UTF-8"
-        body "<h1>シニアーずへのメール登録が完了しました!</h1>"
-      end
-    end
-
-    gmail.deliver(message)
-    gmail.logout
-  end
-
   private
 
     def user_params

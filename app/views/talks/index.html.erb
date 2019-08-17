@@ -3,7 +3,7 @@
 
 <div class="talk-list">
   <h2>個別トーク</h2>
-  <%= link_to 'トーク作成', new_talk_path(id: @talk.f_wer), class: 'btn btn-primary' %>
+  <%= link_to 'トーク作成', new_talk_path(id: @talk.partner_id), class: 'btn btn-primary' %>
 
   <% @talks.each do |my_talk| %>
     <hr>
