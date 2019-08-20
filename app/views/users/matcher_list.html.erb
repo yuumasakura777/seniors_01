@@ -2,18 +2,22 @@
 
 <% provide(:title, 'マッチング一覧') %>
 
-<h2>マッチングユーザー</h2>
-<div class="row">
-  <% @matchers.each do |matcher| %>
-    <div class="col-md-3">
-      <div class="matcher-image">
-        <%= link_to talks_path(id: matcher.id) do %>
-          <%= image_tag matcher.image.url %>
-        <% end %>
+<div class="matcher-list">
+  <h2>マッチングユーザー</h2>
+  <p>ここにはお互いフォロー・フォローされているマッチングユーザーが表示されます。</p>
+
+  <div class="row">
+    <% @matchers.each do |matcher| %>
+      <div class="col-md-3">
+        <div class="matcher-image">
+          <%= link_to talks_path(id: matcher.id) do %>
+            <%= image_tag matcher.image.url %>
+          <% end %>
+        </div>
+        <div class="matcher-name">
+          <%= link_to matcher.name, talks_path(id: matcher.id) %>
+        </div>
       </div>
-      <div class="matcher-name">
-        <%= link_to matcher.name, talks_path(id: matcher.id) %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

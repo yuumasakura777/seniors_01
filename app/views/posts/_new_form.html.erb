@@ -1,14 +1,12 @@
 
-<% provide(:title, '投稿作成') %>
-
 <div class="row">
   <div class="col-md-offset-4 col-md-4 post-new">
     <h2>新規投稿</h2>
-    <%= form_with model:@post, local: true do |f| %>
-    <%= render 'shared/error_messages', object:f.object %>
+    <%= form_with model:@post do |f| %>
+      <%= render 'shared/error_messages', object:f.object %>
       <div class=" form-group">
         <%= f.label :content, class: 'control-label' %>
-        <%= f.text_area :content, :size=>"60x3", class: 'form-control' %>
+        <%= f.text_area :content, placeholder: '掲示板に投稿する内容を入力してください。', class: 'form-control' %>
       </div>
       <%= f.submit '投稿', class: 'btn-block btn-white' %>
     <% end %>

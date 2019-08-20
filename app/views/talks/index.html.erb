@@ -3,24 +3,29 @@
 
 <div class="talk-list">
   <h2>個別トーク</h2>
-  <%= link_to 'トーク作成', new_talk_path(id: @talk.partner_id), class: 'btn btn-primary' %>
+  <p>ここではマッチングしたユーザーとのみトークをすることができます。</p>
+  <div id="talk-new-link">
+    <%= link_to 'トーク作成', new_talk_path(id: @talk.partner_id), class: 'btn btn-primary', remote: true %>
+  </div>
 
-  <% @talks.each do |my_talk| %>
+  <% @talks.each do |talk| %>
     <hr>
     <div class="talks-content-top">
-      <%= image_tag my_talk.user.image.url %>
+      <%= image_tag talk.user.image.url %>
       <div class="talk-content">
-        <%= my_talk.content %>
+        <%= talk.content %>
       </div>
     </div>
     <div class="talk-user-name">
-      <%= my_talk.user.name %>
+      <%= talk.user.name %>
       <span class="talk-created_at">
-        <%= my_talk.created_at %>
+        <%= talk.created_at %>
       </span>
     </div>
     <hr>
   <% end %>
+
+
   <div class="talk-paginate">
     <%= paginate @talks %>
   </div>

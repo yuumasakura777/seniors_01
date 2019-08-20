@@ -301,11 +301,11 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-sass
   byebug
-  capybara (>= 2.15)
+  capybara
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
-  factory_bot_rails (~> 4.11)
+  factory_bot_rails
   fog-aws
   jbuilder (~> 2.5)
   jquery-rails
@@ -319,7 +319,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.3)
   rails-erd
-  rspec-rails (~> 3.7)
+  rspec-rails
   ruby-gmail
   sass-rails (~> 5.0)
   selenium-webdriver

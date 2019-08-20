@@ -3,32 +3,21 @@
 
 <div class="post-list">
   <h2>フリー掲示板</h2>
+  <p>お好きなことを投稿できる掲示板です。</p>
   <div class="new-link-button">
     <%= link_to 'あなたのお気に入り', favorites_path, class: 'btn btn-success' %>
-    <%= link_to '投稿する', new_post_path, class:'btn btn-primary' %>
+    <div id="post-new-link">
+      <%= link_to '投稿する', new_post_path, class:'btn btn-primary', remote: true %>
+    </div>
   </div>
-  <% @posts.each do |post| %>
-    <hr>
-    <div class="post-content-top">
-      <%= link_to user_path(post.user) do %>
-        <%= image_tag post.user.image.url %>
-      <% end %>
-      <div class="content">
-        <%= post.content %>
-      </div>
-      <div class="favorite-star">
-        <div id="favorites_buttons_<%= post.id %>">
-          <%= render 'favorites/favorite', post: post%>
-        </div>
-      </div>
-    </div>
-    <div class="post-user-name">
-      <%= link_to post.user.name, user_path(post.user) %>
-      <span class="post-created_at">
-        <%= post.created_at %>
-      </span>
-    </div>
-    <hr>
-  <% end %>
+
+
+
+  <div id="post-ajax">
+    <%= render 'posts/post_ajax', posts:@posts %>
+  </div>
+
+
+
   <div class="post-index-paginate"><%= paginate @posts %></div>
 </div>

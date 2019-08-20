@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @posts=Post.recent.includes(:favorite_users).page(params[:page]).per(20)
   end
@@ -8,10 +9,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post=current_user.posts.new(post_params)
+    post=current_user.posts.new(post_params)
 
-    if @post.save
-      redirect_to posts_path
+    if post.save
+      @posts=Post.recent.includes(:favorite_users).page(1).per(20)
+      #redirect_to posts_path
     else
       render :new
     end

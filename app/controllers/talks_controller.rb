@@ -3,7 +3,7 @@ class TalksController < ApplicationController
   def index
     @talk = Talk.new
     @talk.partner_id = params[:id]
-    @talks = Talk.talk_matchers(current_user, params[:id]).page(params[:page]).per(20)
+    @talks = Talk.talk_matchers(current_user, params[:id]).includes(:user).page(params[:page]).per(20)
   end
 
   def new
@@ -16,11 +16,10 @@ class TalksController < ApplicationController
     @talk=current_user.talks.new(talk_params)
 
     if @talk.save
-      flash[:success]="投稿しました。"
+      @talks = Talk.talk_matchers(current_user, params[:id]).includes(:user).page(1).per(20)
       redirect_to talks_path(id: talk_params[:partner_id])
     else
       flash.now[:danger]="失敗しました。"
-      #render :new
       redirect_to talks_path(id: talk_params[:partner_id])
     end
     #binding.pry

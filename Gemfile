@@ -42,7 +42,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
-
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :production do
@@ -59,16 +60,14 @@ group :development do
   gem 'letter_opener'
   gem 'rails-erd'
   gem 'sqlite3', '~> 1.3.6'
-  gem 'factory_bot_rails','~> 4.11'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'rspec-rails', '~> 3.7'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
