@@ -1,0 +1,28 @@
+
+
+
+<div class="co-md-12">
+  <table class="table table-striped">
+    <thead class="thead-light">
+      <tr>
+        <td>質問番号</td>
+        <td>タイトル</td>
+        <td>作成日時</td>
+      </tr>
+    </thead>
+    <tbody>
+      <div id="question-ajax">
+        <% @questions.each do |question| %>
+          <tr>
+            <td><%= question.id %></td>
+            <td><%= link_to question.title, question %></td>
+            <td><%= question.created_at %></td>
+          </tr>
+        <% end %>
+      </div>
+    </tbody>
+  </table>
+  <div class="question-paginate">
+    <%= paginate @questions %>
+  </div>
+</div>

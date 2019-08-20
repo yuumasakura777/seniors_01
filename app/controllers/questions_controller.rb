@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions=Question.recent
+    @questions=Question.recent.page(params[:page]).per(10)
   end
 
   def new
@@ -12,10 +12,10 @@ class QuestionsController < ApplicationController
     @question=current_user.questions.new(question_params)
 
     if @question.save
-      flash[:success]="質問を投稿しました。"
-      redirect_to questions_path
+      #flash[:success]="質問を投稿しました。"
+      @questions=Question.recent.page(1).per(10)
+      #redirect_to questions_path
     else
-      flash.now[:danger]="質問投稿に失敗しました。"
       render :new
     end
   end

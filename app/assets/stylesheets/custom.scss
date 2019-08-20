@@ -378,6 +378,9 @@
   }
   .new-link-button{
     margin-bottom: 20px;
+    #post-new-link{
+      margin-top: 10px;
+    }
   }
 }
 
@@ -429,6 +432,11 @@
 .post-new{
   h2{
     margin-left: 0;
+  }
+  .post-submit{
+    :hover{
+      background-color: #FF773E;
+    }
   }
 }
 
@@ -549,6 +557,32 @@
     margin-bottom: 10px;
   }
 }
+
+//talks#new
+.talk-submit{
+  :hover{
+    background-color: #99CCFF;
+  }
+}
+
+//questions#index
+.question-list{
+  height: 100vh;
+  h2{
+    text-align: center;
+  }
+  #question-ajax{
+    margin-bottom: 70px;
+  }
+}
+
+.question-submit{
+  :hover{
+    background-color: #E9FFA5;
+  }
+}
+
+
 //footer
 .footer{
   position: fixed;

@@ -1,26 +1,13 @@
 
+<div class="question-list">
 
+  <h2>質問一覧</h2>
 
-<h2>質問一覧</h2>
-<%= link_to '新しく質問をする', new_question_path, class: 'btn btn-primary' %>
-<div class="co-md-12">
-  <table class="table table-striped">
-    <thead class="thead-light">
-      <tr>
-        <td>質問番号</td>
-        <td>タイトル</td>
-        <td>作成日時</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @questions.each do |question| %>
-        <tr>
-          <td><%= question.id %></td>
-          <td><%= link_to question.title, question %></td>
-          <td><%= question.created_at %></td>
-        </tr>
-      <% end %>
+  <div id="question-new-link">
+    <%= link_to '新しく質問をする', new_question_path, class: 'btn btn-primary', remote:true %>
+  </div>
 
-    </tbody>
-  </table>
+  <div id="question-ajax">
+    <%= render 'questions/question_ajax', questions:@questions %>
+  </div>
 </div>
