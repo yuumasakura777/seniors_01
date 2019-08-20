@@ -93,19 +93,81 @@
 }
 
 //homes#use
+
 .seniors-use{
   margin-bottom: 50px;
   text-align: center;
-  height: 100vh;
+  height: 12670px;
   .use_images{
     .user-new-screen{
       img{
         width:800px;
         height:500px;
+        margin:20px 0px 10px 0px;
+        border: solid 1px black;
+      }
+    }
+    .user-login-screen{
+      img{
+        width:800px;
+        height:500px;
+        margin:20px 0px 10px 0px;
+        border: solid 1px black;
+      }
+    }
+    .user-index-screen{
+      img{
+        width:800px;
+        height:500px;
+        margin:20px 0px 10px 0px;
+        border: solid 1px black;
+      }
+    }
+    .user-show-screen{
+      img{
+        width:800px;
+        height:500px;
+        margin:20px 0px 10px 0px;
+        border: solid 1px black;
+      }
+    }
+    .matcher-screen{
+      img{
+        width:800px;
+        height:500px;
+        margin:20px 0px 10px 0px;
+        border: solid 1px black;
+      }
+    }
+    .post-screen{
+      img{
+        width:800px;
+        height:500px;
+        margin:20px 0px 10px 0px;
+        border: solid 1px black;
+      }
+    }
+    .question-screen{
+      img{
+        width:800px;
+        height:500px;
+        margin:20px 0px 10px 0px;
+        border: solid 1px black;
+      }
+    }
+    .logout-screen{
+      img{
+        width:800px;
+        height:500px;
+        margin:20px 0px 10px 0px;
+        border: solid 1px black;
       }
     }
   }
 }
+
+
+
 .seniors-about{
   padding: 10px;
   h2{
